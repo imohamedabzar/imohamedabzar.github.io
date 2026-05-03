@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohamed Abzar | Data Analyst & Developer</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --white: #ffffff;
+  --off-white: #f8f8f6;
+  --light: #f0efed;
+  --mid: #e2e0dc;
+  --border: #d8d6d2;
+  --border2: #c0beba;
+  --text-hint: #b0aea9;
+  --text-muted: #888480;
+  --text-secondary: #555250;
+  --text-primary: #1a1816;
+  --black: #0d0c0b;
+  --radius: 12px;
+  --radius-lg: 20px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  background:var(--white);
+  color:var(--text-primary);
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--black);color:var(--white)}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--light)}
+::-webkit-scrollbar-thumb{background:var(--border2);border-radius:4px}
+
+/* ===== NAV ===== */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:20px 6%;
+  background:rgba(255,255,255,0.93);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+  transition:padding .3s;
+}
+nav.scrolled{padding:14px 6%}
+.nav-logo{font-size:.9rem;font-weight:800;color:var(--black);text-decoration:none;letter-spacing:-.3px}
+.nav-links{display:flex;gap:2px;list-style:none;align-items:center}
+.nav-links a{
+  font-size:.78rem;font-weight:600;color:var(--text-secondary);
+  text-decoration:none;padding:7px 14px;border-radius:50px;
+  transition:all .2s;
+}
+.nav-links a:hover{color:var(--black);background:var(--light)}
+.nav-cta{background:var(--black)!important;color:var(--white)!important;padding:8px 18px!important}
+.nav-cta:hover{background:#2a2a2a!important}
+.menu-btn{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.menu-btn span{display:block;width:20px;height:1.5px;background:var(--black);transition:.3s}
+
+/* ===== HERO ===== */
+.hero{
+  min-height:100vh;
+  max-width:1280px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;gap:80px;
+  align-items:center;
+  padding:110px 6% 80px;
+}
+.hero-eyebrow{
+  font-size:.68rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--text-muted);margin-bottom:22px;
+  display:flex;align-items:center;gap:10px;
+}
+.hero-eyebrow::before{content:'';width:22px;height:1px;background:var(--text-hint)}
+.hero-name{
+  font-size:clamp(2.8rem,4.5vw,3.8rem);
+  font-weight:900;letter-spacing:-2px;line-height:1.05;
+  color:var(--black);margin-bottom:18px;
+}
+.hero-name em{font-style:normal;color:var(--text-hint)}
+.hero-tagline{font-size:.92rem;color:var(--text-secondary);line-height:1.85;margin-bottom:34px;max-width:480px}
+.hero-btns{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:44px}
+.btn-dark{
+  background:var(--black);color:var(--white);
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:.8rem;font-weight:700;letter-spacing:.3px;
+  padding:12px 26px;border-radius:50px;text-decoration:none;border:none;cursor:pointer;
+  transition:all .22s;display:inline-flex;align-items:center;gap:7px;
+}
+.btn-dark:hover{background:#2a2a2a;transform:translateY(-2px)}
+.btn-outline{
+  background:transparent;color:var(--black);
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:.8rem;font-weight:700;letter-spacing:.3px;
+  padding:11px 24px;border-radius:50px;text-decoration:none;
+  border:1.5px solid var(--border2);cursor:pointer;
+  transition:all .22s;display:inline-flex;align-items:center;gap:7px;
+}
+.btn-outline:hover{border-color:var(--black);background:var(--off-white)}
+.hero-chips{display:flex;flex-wrap:wrap;gap:7px}
+.chip{
+  font-size:.7rem;font-weight:600;color:var(--text-secondary);
+  padding:4px 13px;border-radius:50px;
+  border:1px solid var(--border);background:var(--off-white);transition:.2s;
+}
+.chip:hover{border-color:var(--black);color:var(--black)}
+
+/* HERO VISUAL */
+.hero-visual{display:flex;justify-content:flex-end;position:relative}
+.profile-frame{
+  width:360px;height:440px;
+  border-radius:var(--radius-lg);overflow:hidden;
+  background:var(--light);border:1px solid var(--border);
+  position:relative;
+}
+.profile-frame>img{
+  width:100%;height:calc(100% - 72px);
+  object-fit:cover;object-position:top center;
+}
+.profile-label{
+  position:absolute;bottom:0;left:0;right:0;
+  background:rgba(255,255,255,.96);border-top:1px solid var(--border);
+  padding:14px 18px;
+}
+.profile-label-name{font-size:.85rem;font-weight:800;color:var(--black);margin-bottom:2px}
+.profile-label-role{font-size:.7rem;color:var(--text-muted);font-weight:500}
+.availability-badge{
+  position:absolute;top:18px;left:-14px;
+  background:var(--white);border:1px solid var(--border);
+  padding:8px 14px;border-radius:var(--radius);
+  font-size:.68rem;font-weight:700;color:var(--text-primary);
+  box-shadow:0 4px 16px rgba(0,0,0,.06);white-space:nowrap;
+  display:flex;align-items:center;gap:7px;
+}
+.avail-dot{width:7px;height:7px;border-radius:50%;background:#22c55e;flex-shrink:0}
+
+/* ===== HIRE + BUILD SECTION ===== */
+.hire-section{background:var(--black)}
+.hire-inner{
+  max-width:1200px;margin:0 auto;padding:72px 6%;
+  display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;
+}
+.hire-left h2{
+  font-size:clamp(1.7rem,3vw,2.4rem);font-weight:900;letter-spacing:-1.5px;
+  color:var(--white);margin-bottom:14px;line-height:1.2;
+}
+.hire-left p{font-size:.85rem;color:rgba(255,255,255,.45);line-height:1.85;margin-bottom:26px}
+.btn-white{
+  background:var(--white);color:var(--black);
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:.8rem;font-weight:800;
+  padding:12px 26px;border-radius:50px;border:none;cursor:pointer;
+  display:inline-flex;align-items:center;gap:8px;text-decoration:none;
+  transition:.22s;
+}
+.btn-white:hover{background:var(--off-white)}
+.hire-right{
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);
+  border-radius:var(--radius-lg);padding:30px;
+}
+.hire-right h3{font-size:.95rem;font-weight:800;color:var(--white);margin-bottom:5px}
+.hire-right>p{font-size:.78rem;color:rgba(255,255,255,.38);margin-bottom:20px}
+.build-messages{
+  min-height:80px;max-height:140px;overflow-y:auto;
+  margin-bottom:14px;display:flex;flex-direction:column;gap:8px;
+}
+.bmsg{padding:9px 13px;border-radius:9px;font-size:.78rem;line-height:1.6;max-width:90%}
+.bmsg.bot{background:rgba(255,255,255,.07);color:rgba(255,255,255,.7);align-self:flex-start}
+.build-fields{display:flex;flex-direction:column;gap:9px}
+.build-fields input,.build-fields textarea{
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);
+  color:var(--white);font-family:'Plus Jakarta Sans',sans-serif;font-size:.78rem;
+  padding:9px 13px;border-radius:8px;outline:none;transition:.2s;resize:none;
+}
+.build-fields input::placeholder,.build-fields textarea::placeholder{color:rgba(255,255,255,.22)}
+.build-fields input:focus,.build-fields textarea:focus{border-color:rgba(255,255,255,.3)}
+.build-fields textarea{min-height:72px}
+.btn-build{
+  background:var(--white);color:var(--black);
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:.76rem;font-weight:800;
+  padding:9px 20px;border-radius:8px;border:none;cursor:pointer;transition:.2s;margin-top:4px;align-self:flex-start;
+}
+.btn-build:hover{background:var(--off-white)}
+.build-success{
+  text-align:center;padding:16px 0;
+  color:rgba(255,255,255,.65);font-size:.8rem;line-height:1.8;
+}
+.build-success strong{color:var(--white)}
+
+/* ===== SECTION BASE ===== */
+.section{padding:96px 6%}
+.section.alt{background:var(--off-white)}
+.section-inner{max-width:1200px;margin:0 auto}
+.eyebrow{
+  font-size:.68rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--text-muted);margin-bottom:14px;
+  display:flex;align-items:center;gap:10px;
+}
+.eyebrow::after{content:'';width:28px;height:1px;background:var(--text-hint)}
+.sec-title{
+  font-size:clamp(1.8rem,3vw,2.5rem);font-weight:900;
+  letter-spacing:-1.5px;margin-bottom:14px;color:var(--black);line-height:1.15;
+}
+.sec-sub{font-size:.88rem;color:var(--text-secondary);max-width:540px;line-height:1.85}
+
+/* ===== ABOUT ===== */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.about-text p{font-size:.88rem;color:var(--text-secondary);line-height:1.9;margin-bottom:16px}
+.about-text strong{color:var(--black);font-weight:700}
+.about-stats{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:36px}
+.stat-box{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:20px}
+.stat-n{font-size:1.9rem;font-weight:900;color:var(--black);letter-spacing:-1px;margin-bottom:2px}
+.stat-l{font-size:.65rem;font-weight:700;color:var(--text-muted);letter-spacing:.8px;text-transform:uppercase}
+.roles-col{display:flex;flex-direction:column;gap:14px}
+.role-item{
+  border-left:2px solid var(--border);
+  padding:14px 18px;transition:all .22s;
+}
+.role-item:hover{border-left-color:var(--black);background:var(--off-white);border-radius:0 var(--radius) var(--radius) 0}
+.role-t{font-size:.87rem;font-weight:800;color:var(--black);margin-bottom:3px}
+.role-d{font-size:.76rem;color:var(--text-muted);line-height:1.6}
+
+/* ===== SKILLS ===== */
+.skills-intro{
+  font-size:.84rem;color:var(--text-secondary);
+  border-left:2px solid var(--black);padding:14px 20px;
+  background:var(--white);border-radius:0 var(--radius) var(--radius) 0;
+  line-height:1.85;margin-bottom:48px;max-width:660px;
+  border:1px solid var(--border);border-left:3px solid var(--black);
+}
+.skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px}
+.skill-group-l{font-size:.67rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);margin-bottom:26px}
+.skill-item{margin-bottom:20px}
+.skill-header{display:flex;justify-content:space-between;margin-bottom:7px}
+.skill-name{font-size:.8rem;font-weight:700;color:var(--text-primary)}
+.skill-pct{font-size:.75rem;color:var(--text-muted);font-weight:600}
+.skill-track{height:2px;background:var(--mid);border-radius:4px;overflow:hidden}
+.skill-fill{height:100%;background:var(--black);border-radius:4px;width:0;transition:width 1.2s cubic-bezier(.16,1,.3,1)}
+.ai-callout{
+  margin-top:36px;background:var(--black);color:var(--white);
+  border-radius:var(--radius);padding:22px 26px;
+}
+.ai-callout-tag{font-size:.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:7px}
+.ai-callout p{font-size:.8rem;color:rgba(255,255,255,.6);line-height:1.85}
+.ai-callout strong{color:var(--white)}
+.tech-pills{display:flex;flex-wrap:wrap;gap:7px;margin-top:28px}
+.tech-pill{
+  font-size:.7rem;font-weight:600;color:var(--text-secondary);
+  padding:4px 13px;border-radius:50px;
+  border:1px solid var(--border);transition:.2s;
+}
+.tech-pill:hover{border-color:var(--black);color:var(--black)}
+
+/* ===== EXPERIENCE ===== */
+.timeline{padding-left:26px;position:relative}
+.timeline::before{content:'';position:absolute;left:0;top:8px;bottom:0;width:1px;background:var(--border)}
+.tl-item{
+  position:relative;margin-bottom:32px;
+  border:1px solid var(--border);border-radius:var(--radius-lg);
+  padding:26px 30px;background:var(--white);transition:all .28s;
+}
+.tl-item::before{
+  content:'';position:absolute;left:-32px;top:30px;
+  width:7px;height:7px;border-radius:50%;
+  background:var(--black);border:2px solid var(--white);
+  box-shadow:0 0 0 1px var(--border2);
+}
+.tl-item:hover{border-color:var(--border2);box-shadow:0 6px 28px rgba(0,0,0,.06)}
+.tl-date{font-size:.67rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:7px}
+.tl-co{font-size:.97rem;font-weight:800;color:var(--black);margin-bottom:2px;letter-spacing:-.3px}
+.tl-role{font-size:.76rem;font-weight:600;color:var(--text-muted);margin-bottom:12px}
+.tl-desc{font-size:.83rem;color:var(--text-secondary);line-height:1.82}
+.tl-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.tl-tag{font-size:.66rem;font-weight:700;padding:3px 10px;border-radius:50px;border:1px solid var(--border);color:var(--text-secondary)}
+
+/* ===== PROJECTS ===== */
+.proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.proj-card{
+  border:1px solid var(--border);border-radius:var(--radius-lg);
+  padding:26px;background:var(--white);
+  transition:all .28s;display:flex;flex-direction:column;
+}
+.proj-card:hover{border-color:var(--black);box-shadow:0 10px 36px rgba(0,0,0,.07);transform:translateY(-4px)}
+.proj-num{font-size:.63rem;font-weight:800;letter-spacing:3px;color:var(--text-hint);margin-bottom:12px;text-transform:uppercase}
+.proj-title{font-size:.88rem;font-weight:800;color:var(--black);margin-bottom:9px;line-height:1.5;letter-spacing:-.2px}
+.proj-desc{font-size:.76rem;color:var(--text-secondary);line-height:1.78;flex:1;margin-bottom:14px}
+.proj-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:auto}
+.ptag{font-size:.63rem;font-weight:700;padding:3px 9px;border-radius:50px;border:1px solid var(--border);color:var(--text-secondary)}
+
+/* FREELANCE */
+.fl-card{
+  margin-top:20px;
+  display:grid;grid-template-columns:1fr 1fr;
+  border:1px solid var(--black);border-radius:var(--radius-lg);overflow:hidden;
+}
+.fl-left{padding:32px;background:var(--black)}
+.fl-eyebrow{font-size:.66rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:12px}
+.fl-left h3{font-size:1.3rem;font-weight:900;color:var(--white);letter-spacing:-1px;margin-bottom:9px}
+.fl-left p{font-size:.8rem;color:rgba(255,255,255,.45);line-height:1.82;margin-bottom:22px}
+.fl-left a{
+  display:inline-flex;align-items:center;gap:7px;
+  background:var(--white);color:var(--black);
+  font-size:.76rem;font-weight:800;padding:10px 20px;
+  border-radius:50px;text-decoration:none;transition:.22s;
+}
+.fl-left a:hover{background:var(--off-white)}
+.fl-right{padding:32px;background:var(--off-white)}
+.fl-services{list-style:none;display:flex;flex-direction:column;gap:10px}
+.fl-services li{display:flex;align-items:flex-start;gap:10px;font-size:.8rem;color:var(--text-secondary)}
+.fl-services li::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--black);flex-shrink:0;margin-top:8px}
+
+/* ===== LEADERSHIP ===== */
+.ldr-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.treasurer-frame{
+  width:100%;aspect-ratio:3/2;
+  border:1px solid var(--border);border-radius:var(--radius-lg);
+  overflow:hidden;background:var(--light);
+}
+.treasurer-frame img{
+  width:100%;height:100%;object-fit:cover;
+}
+.ldr-date{font-size:.67rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-muted);margin:20px 0 7px}
+.ldr-title{font-size:1.15rem;font-weight:900;color:var(--black);letter-spacing:-.5px;margin-bottom:3px}
+.ldr-org{font-size:.77rem;color:var(--text-muted);margin-bottom:14px}
+.ldr-desc{font-size:.83rem;color:var(--text-secondary);line-height:1.82}
+.ldr-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
+.ldr-tag{font-size:.66rem;font-weight:700;padding:3px 11px;border-radius:50px;border:1px solid var(--border);color:var(--text-secondary)}
+.soft-list{display:flex;flex-direction:column;gap:12px}
+.soft-item{
+  display:flex;align-items:flex-start;gap:14px;
+  padding:16px 18px;border:1px solid var(--border);
+  border-radius:var(--radius);background:var(--white);transition:.22s;
+}
+.soft-item:hover{border-color:var(--black)}
+.soft-dot{width:6px;height:6px;border-radius:50%;background:var(--black);flex-shrink:0;margin-top:7px}
+.soft-name{font-size:.83rem;font-weight:800;color:var(--black);margin-bottom:1px}
+.soft-desc{font-size:.73rem;color:var(--text-muted);line-height:1.5}
+
+/* ===== CHATBOT ===== */
+.chatbot-section{border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.chatbot-inner{
+  max-width:1200px;margin:0 auto;padding:80px 6%;
+  display:grid;grid-template-columns:200px 1fr;gap:80px;align-items:center;
+}
+.spider-figure{display:flex;flex-direction:column;align-items:center;gap:18px}
+.bot-bubble{
+  background:var(--white);border:1px solid var(--border);
+  border-radius:var(--radius);padding:14px 18px;
+  text-align:center;max-width:210px;position:relative;
+}
+.bot-bubble::after{
+  content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);
+  border:7px solid transparent;border-top-color:var(--border);
+}
+.bot-bubble::before{
+  content:'';position:absolute;top:calc(100% - 1px);left:50%;transform:translateX(-50%);
+  border:7px solid transparent;border-top-color:var(--white);z-index:1;
+}
+.bot-bubble p{font-size:.74rem;color:var(--text-secondary);line-height:1.6}
+.bot-bubble strong{color:var(--black)}
+.bot-email{font-size:.68rem;color:var(--text-muted);display:block;margin-top:3px}
+.spider-char{animation:spiderJump 2.2s ease-in-out infinite}
+@keyframes spiderJump{
+  0%,100%{transform:translateY(0) rotate(-2deg)}
+  30%{transform:translateY(-16px) rotate(2deg) scaleX(.96)}
+  60%{transform:translateY(-28px) rotate(0deg) scaleY(1.04)}
+  80%{transform:translateY(-8px) rotate(-1deg)}
+}
+.spider-form-area h3{font-size:1.1rem;font-weight:800;letter-spacing:-.4px;color:var(--black);margin-bottom:5px}
+.spider-form-area p{font-size:.8rem;color:var(--text-muted);margin-bottom:18px}
+.chat-display{
+  background:var(--off-white);border:1px solid var(--border);
+  border-radius:var(--radius);padding:14px;
+  min-height:90px;max-height:160px;overflow-y:auto;
+  margin-bottom:12px;display:flex;flex-direction:column;gap:7px;
+}
+.cmsg{padding:8px 13px;border-radius:8px;font-size:.78rem;line-height:1.6;max-width:85%}
+.cmsg.bot{background:var(--white);color:var(--text-secondary);align-self:flex-start;border:1px solid var(--border)}
+.cmsg.user{background:var(--black);color:var(--white);align-self:flex-end}
+.chat-row{display:flex;gap:8px}
+.chat-inp{
+  flex:1;background:var(--white);border:1px solid var(--border);
+  color:var(--text-primary);padding:10px 15px;border-radius:8px;
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:.79rem;outline:none;transition:.2s;
+}
+.chat-inp:focus{border-color:var(--black)}
+.chat-send-btn{
+  background:var(--black);color:var(--white);border:none;
+  padding:0 18px;border-radius:8px;font-size:.74rem;font-weight:700;cursor:pointer;
+  font-family:'Plus Jakarta Sans',sans-serif;transition:.2s;
+}
+.chat-send-btn:hover{background:#2a2a2a}
+.chat-note{font-size:.68rem;color:var(--text-hint);margin-top:7px}
+
+/* ===== CONTACT ===== */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.contact-links{display:flex;flex-direction:column;gap:12px}
+.contact-item{
+  display:flex;align-items:center;gap:14px;
+  padding:18px 22px;border:1px solid var(--border);border-radius:var(--radius);
+  background:var(--white);text-decoration:none;color:var(--black);transition:.22s;
+}
+.contact-item:hover{border-color:var(--black);background:var(--off-white)}
+.ci-icon{
+  width:38px;height:38px;border-radius:9px;background:var(--off-white);
+  border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.ci-label{font-size:.66rem;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.9px;margin-bottom:2px}
+.ci-val{font-size:.82rem;font-weight:700;color:var(--black)}
+.cf{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px}
+.cf h3{font-size:.97rem;font-weight:800;color:var(--black);margin-bottom:22px;letter-spacing:-.3px}
+.fg{margin-bottom:16px}
+.fg label{display:block;font-size:.65rem;font-weight:700;color:var(--text-muted);letter-spacing:.9px;text-transform:uppercase;margin-bottom:7px}
+.fg input,.fg textarea{
+  width:100%;background:var(--off-white);border:1px solid var(--border);
+  color:var(--black);padding:10px 15px;border-radius:8px;
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:.83rem;outline:none;transition:.2s;resize:vertical;
+}
+.fg input:focus,.fg textarea:focus{border-color:var(--black);background:var(--white)}
+.fg textarea{min-height:100px}
+
+/* ===== FOOTER ===== */
+footer{
+  background:var(--black);padding:36px 6%;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:18px;
+}
+.f-name{font-size:.82rem;font-weight:800;color:var(--white)}
+.f-sub{font-size:.68rem;color:rgba(255,255,255,.28);margin-top:2px}
+.f-links{display:flex;gap:18px}
+.f-links a{font-size:.7rem;color:rgba(255,255,255,.38);text-decoration:none;font-weight:600;transition:.2s}
+.f-links a:hover{color:var(--white)}
+
+/* ===== DIVIDER ===== */
+.divider{height:1px;background:var(--border)}
+
+/* ===== REVEAL ===== */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:translateY(0)}
+.reveal-l{opacity:0;transform:translateX(-18px);transition:opacity .6s ease,transform .6s ease}
+.reveal-l.in{opacity:1;transform:translateX(0)}
+.reveal-r{opacity:0;transform:translateX(18px);transition:opacity .6s ease,transform .6s ease}
+.reveal-r.in{opacity:1;transform:translateX(0)}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:960px){
+  .hero{grid-template-columns:1fr;gap:44px;padding:100px 6% 60px}
+  .hero-visual{justify-content:center}
+  .profile-frame{width:280px;height:340px}
+  .hire-inner,.about-grid,.skills-grid,.ldr-grid,.contact-grid{grid-template-columns:1fr}
+  .proj-grid{grid-template-columns:1fr}
+  .fl-card{grid-template-columns:1fr}
+  .chatbot-inner{grid-template-columns:1fr;gap:36px}
+  .spider-figure{flex-direction:row;align-items:flex-end;gap:20px}
+  nav .nav-links{display:none;position:fixed;inset:0;top:64px;background:var(--white);flex-direction:column;padding:24px 6%;z-index:999;align-items:flex-start;border-top:1px solid var(--border)}
+  nav .nav-links.open{display:flex}
+  .menu-btn{display:flex}
+}
+@media(max-width:600px){
+  .about-stats{grid-template-columns:1fr 1fr}
+  footer{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a class="nav-logo" href="#home">Mohamed Abzar</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#leadership">Leadership</a></li>
+    <li><a href="#chatbot">Chat</a></li>
+    <li><a href="#contact" class="nav-cta">Contact</a></li>
+  </ul>
+  <button class="menu-btn" id="menuBtn" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div>
+    <div class="hero-eyebrow">Based in Liverpool, United Kingdom</div>
+    <h1 class="hero-name">
+      Mohamed<br><em>Abzar</em>
+    </h1>
+    <p class="hero-tagline">
+      MSc Computer Science graduate from the University of Liverpool. I work with data, build things online, and I am always looking to learn. Experienced in Python, SQL, Machine Learning, and E-commerce development — and actively looking for opportunities in the UK.
+    </p>
+    <div class="hero-btns">
+      <a href="#projects" class="btn-dark">View My Work</a>
+      <a href="https://www.linkedin.com/in/mohamedabzar-27ab33323/" target="_blank" class="btn-outline">LinkedIn</a>
+      <a href="#contact" class="btn-outline">Get In Touch</a>
+    </div>
+    <div class="hero-chips">
+      <span class="chip">Data Analytics</span>
+      <span class="chip">Machine Learning</span>
+      <span class="chip">E-commerce Dev</span>
+      <span class="chip">Trading</span>
+      <span class="chip">Freelancing</span>
+      <span class="chip">Liverpool, UK</span>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="profile-frame">
+      <!--
+        PHOTO INSTRUCTIONS:
+        Save your photo as  profile.png  in the same folder as this HTML file.
+        The image below will display automatically.
+      -->
+      <img src="profile.png" alt="Mohamed Abzar" onerror="this.style.display='none'">
+      <div class="profile-label">
+        <div class="profile-label-name">Mohamed Abzar A. R.</div>
+        <div class="profile-label-role">Data Analyst · Developer · Freelancer · Liverpool, UK</div>
+      </div>
+    </div>
+    <div class="availability-badge">
+      <div class="avail-dot"></div>
+      Available for opportunities
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- HIRE ME + BUILD A SITE -->
+<section class="hire-section" id="hire">
+  <div class="hire-inner">
+    <div class="hire-left">
+      <h2>Open to new<br>opportunities</h2>
+      <p>If you have a role that you think I would be a good fit for, I would genuinely love to hear from you. Drop me an email and we can talk.</p>
+      <a href="mailto:i.mohamedabzar@gmail.com?subject=Job Opportunity" class="btn-white">Hire Me</a>
+    </div>
+    <div class="hire-right">
+      <h3>Want to build or improve your business online?</h3>
+      <p>Share your email and a few details — Abzar will get back to you.</p>
+      <div class="build-messages" id="buildMsgs">
+        <div class="bmsg bot">Tell me your email address and what kind of e-commerce site you have in mind.</div>
+      </div>
+      <div class="build-fields" id="buildFields">
+        <input type="email" id="bEmail" placeholder="Your email address">
+        <textarea id="bDetails" placeholder="Describe your e-commerce idea — product type, features, goals..."></textarea>
+        <button class="btn-build" onclick="submitBuild()">Send Enquiry</button>
+      </div>
+      <div id="buildSuccess" class="build-success" style="display:none">
+        <strong>Message received.</strong><br>
+        Abzar will review your enquiry and reply as soon as possible.<br>
+        Keep in touch — <strong>i.mohamedabzar@gmail.com</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-text">
+        <div class="eyebrow reveal">About Me</div>
+        <h2 class="sec-title reveal">A bit about who I am</h2>
+        <p class="reveal">I recently finished my MSc in Computer Science at the University of Liverpool. Most of what I do revolves around data — understanding it, making it usable, and using it to help people make better decisions.</p>
+        <p class="reveal">I also built and run <strong>bargainsquare.co.uk</strong> as a side project — took it from nothing to a live e-commerce store. And I trade on the side, which honestly keeps me grounded and analytical in ways that no classroom really can.</p>
+        <p class="reveal">I care about the work I do and the people I do it with. Based in Liverpool, and genuinely excited about what is next.</p>
+        <div class="about-stats reveal">
+          <div class="stat-box">
+            <div class="stat-n">3</div>
+            <div class="stat-l">ML Projects</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-n">2</div>
+            <div class="stat-l">Countries Worked</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-n">1</div>
+            <div class="stat-l">Live E-commerce Site</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-n">MSc</div>
+            <div class="stat-l">Computer Science</div>
+          </div>
+        </div>
+      </div>
+      <div class="roles-col">
+        <div class="eyebrow reveal">What I Do</div>
+        <div class="role-item reveal">
+          <div class="role-t">Aspiring Data Analyst / Data Engineer</div>
+          <div class="role-d">Working with real datasets, building pipelines, and finding patterns that actually matter.</div>
+        </div>
+        <div class="role-item reveal">
+          <div class="role-t">E-commerce Developer</div>
+          <div class="role-d">Built bargainsquare.co.uk from scratch — design, development, and everything in between.</div>
+        </div>
+        <div class="role-item reveal">
+          <div class="role-t">Active Trader</div>
+          <div class="role-d">Trading keeps me sharp. Reading markets is just another form of data analysis.</div>
+        </div>
+        <div class="role-item reveal">
+          <div class="role-t">Leadership</div>
+          <div class="role-d">Served as Treasurer during my bachelor's — handled funds, planned budgets, and kept things running smoothly.</div>
+        </div>
+        <div class="role-item reveal">
+          <div class="role-t">Building Strong Connections</div>
+          <div class="role-d">People matter. I put real effort into growing my network and maintaining genuine relationships.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SKILLS -->
+<section class="section alt" id="skills">
+  <div class="section-inner">
+    <div class="eyebrow reveal">Technical Skills</div>
+    <h2 class="sec-title reveal">Skills & Expertise</h2>
+    <div class="skills-grid">
+      <div>
+        <div class="skill-group-l reveal">Data & Analytics</div>
+        <div class="skill-item reveal">
+          <div class="skill-header"><span class="skill-name">Python (Pandas, NumPy, Matplotlib)</span><span class="skill-pct">90%</span></div>
+          <div class="skill-track"><div class="skill-fill" data-w="90"></div></div>
+        </div>
+        <div class="skill-item reveal">
+          <div class="skill-header"><span class="skill-name">SQL & Database Management</span><span class="skill-pct">85%</span></div>
+          <div class="skill-track"><div class="skill-fill" data-w="85"></div></div>
+        </div>
+        <div class="skill-item reveal">
+          <div class="skill-header"><span class="skill-name">Power BI</span><span class="skill-pct">80%</span></div>
+          <div class="skill-track"><div class="skill-fill" data-w="80"></div></div>
+        </div>
+        <div class="skill-item reveal">
+          <div class="skill-header"><span class="skill-name">Microsoft Excel (Advanced + VBA)</span><span class="skill-pct">85%</span></div>
+          <div class="skill-track"><div class="skill-fill" data-w="85"></div></div>
+        </div>
+        <div class="skill-item reveal">
+          <div class="skill-header"><span class="skill-name">Machine Learning (scikit-learn)</span><span class="skill-pct">75%</span></div>
+          <div class="skill-track"><div class="skill-fill" data-w="75"></div></div>
+        </div>
+        <div class="skill-item reveal">
+          <div class="skill-header"><span class="skill-name">Deep Learning / CNN</span><span class="skill-pct">50%</span></div>
+          <div class="skill-track"><div class="skill-fill" data-w="50"></div></div>
+        </div>
+        <div class="skill-item reveal">
+          <div class="skill-header"><span class="skill-name">AI Knowledge (Claude AI, ChatGPT)</span><span class="skill-pct">95%</span></div>
+          <div class="skill-track"><div class="skill-fill" data-w="95"></div></div>
+        </div>
+        <div class="ai-callout reveal">
+          <div class="ai-callout-tag">AI-First Mindset</div>
+          <p>AI is changing everything fast and I want to stay ahead of it, not behind it. I use <strong>Claude AI</strong> and <strong>ChatGPT</strong> regularly and I am always looking at ways to bring AI into whatever I am working on.</p>
+        </div>
+      </div>
+      <div>
+        <div class="skill-group-l reveal">Development & Tools</div>
+        <div class="skill-item reveal">
+          <div class="skill-header"><span class="skill-name">E-commerce Development</span><span class="skill-pct">80%</span></div>
+          <div class="skill-track"><div class="skill-fill" data-w="80"></div></div>
+        </div>
+        <div class="skill-item reveal">
+          <div class="skill-header"><span class="skill-name">ETL & Data Pipelines</span><span class="skill-pct">70%</span></div>
+          <div class="skill-track"><div class="skill-fill" data-w="70"></div></div>
+        </div>
+        <div class="skill-item reveal">
+          <div class="skill-header"><span class="skill-name">Node2Vec & Graph ML</span><span class="skill-pct">65%</span></div>
+          <div class="skill-track"><div class="skill-fill" data-w="65"></div></div>
+        </div>
+        <div class="skill-item reveal">
+          <div class="skill-header"><span class="skill-name">Statistical Modelling</span><span class="skill-pct">78%</span></div>
+          <div class="skill-track"><div class="skill-fill" data-w="78"></div></div>
+        </div>
+        <div class="tech-pills reveal">
+          <span class="tech-pill">GitHub</span>
+          <span class="tech-pill">KPI Dashboards</span>
+          <span class="tech-pill">Agile</span>
+          <span class="tech-pill">Data Storytelling</span>
+          <span class="tech-pill">Business Intelligence</span>
+          <span class="tech-pill">Predictive Modelling</span>
+          <span class="tech-pill">Requirements Gathering</span>
+          <span class="tech-pill">Cross-functional Collaboration</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- EXPERIENCE -->
+<section class="section" id="experience">
+  <div class="section-inner">
+    <div class="eyebrow reveal">Career</div>
+    <h2 class="sec-title reveal">Work Experience</h2>
+    <p class="sec-sub reveal" style="margin-bottom:48px">From Chennai to Liverpool — each role has shaped how I think and work.</p>
+    <div class="timeline">
+      <div class="tl-item reveal">
+        <div class="tl-date">Ongoing — Freelance</div>
+        <div class="tl-co">Bargain Square — bargainsquare.co.uk</div>
+        <div class="tl-role">E-commerce Developer</div>
+        <div class="tl-desc">Built and maintained a full e-commerce website from the ground up. Handled product listings, payment integration, UI/UX design, and all ongoing development — demonstrating end-to-end web development and entrepreneurial execution.</div>
+        <div class="tl-tags">
+          <span class="tl-tag">E-commerce</span>
+          <span class="tl-tag">Web Development</span>
+          <span class="tl-tag">UX Design</span>
+          <span class="tl-tag">Freelancing</span>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-date">May – July 2023</div>
+        <div class="tl-co">Code Bind Technologies — Chennai, India</div>
+        <div class="tl-role">Data Intern</div>
+        <div class="tl-desc">Cleaned and validated over 5,000 student and academic records to ensure data accuracy, reducing reporting errors. Managed structured data within a web-based system, improving pipeline consistency. Conducted trend analysis on student data and contributed to business intelligence reports used for operational decision-making.</div>
+        <div class="tl-tags">
+          <span class="tl-tag">Data Cleaning</span>
+          <span class="tl-tag">Trend Analysis</span>
+          <span class="tl-tag">BI Reporting</span>
+          <span class="tl-tag">Data Pipelines</span>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-date">2024 – 2025 · Part-time, while completing MSc</div>
+        <div class="tl-co">Various — Liverpool, United Kingdom</div>
+        <div class="tl-role">Also did some part-time jobs — valuable, learning and a good experience</div>
+        <div class="tl-desc">Worked in hospitality and retail while doing my Master's. It was not glamorous but it was genuinely good experience — dealing with people, working under pressure, and just getting on with things. I would not trade it.</div>
+        <div class="tl-tags">
+          <span class="tl-tag">Hospitality</span>
+          <span class="tl-tag">Retail</span>
+          <span class="tl-tag">Team Work</span>
+          <span class="tl-tag">Customer Service</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PROJECTS -->
+<section class="section alt" id="projects">
+  <div class="section-inner">
+    <div class="eyebrow reveal">Portfolio</div>
+    <h2 class="sec-title reveal">Projects</h2>
+    <p class="sec-sub reveal" style="margin-bottom:36px">Real datasets. Real ML pipelines. Real insights.</p>
+    <div class="proj-grid">
+      <div class="proj-card reveal">
+        <div class="proj-num">Project 01</div>
+        <div class="proj-title">Predicting Academic Collaborations via Node2Vec and Supervised Learning</div>
+        <div class="proj-desc">Analysed the large-scale DBLP dataset to identify patterns in academic co-authorship using Python and SQL. Built a Node2Vec and Logistic Regression model to predict collaboration trends. Produced data visualisation dashboards to communicate findings to a non-technical audience.</div>
+        <div class="proj-tags">
+          <span class="ptag">Node2Vec</span>
+          <span class="ptag">Graph ML</span>
+          <span class="ptag">Python</span>
+          <span class="ptag">SQL</span>
+        </div>
+      </div>
+      <div class="proj-card reveal">
+        <div class="proj-num">Project 02</div>
+        <div class="proj-title">SnakeSmart — AI-Based Snake Species Identification</div>
+        <div class="proj-desc">Developed a CNN deep learning model to classify snake species from image data. Handled end-to-end data collection, preprocessing, and model training. Built an automated identification system with first aid recommendations based on species identified.</div>
+        <div class="proj-tags">
+          <span class="ptag">CNN</span>
+          <span class="ptag">Deep Learning</span>
+          <span class="ptag">Image Classification</span>
+          <span class="ptag">Python</span>
+        </div>
+      </div>
+      <div class="proj-card reveal">
+        <div class="proj-num">Project 03</div>
+        <div class="proj-title">Student Performance Prediction — ML Classification Pipeline</div>
+        <div class="proj-desc">Analysed student data to identify key performance factors using statistical analysis and data visualisation. Built and evaluated multiple models including Naive Bayes, SVM, and Logistic Regression, achieving approximately 76% accuracy.</div>
+        <div class="proj-tags">
+          <span class="ptag">SVM</span>
+          <span class="ptag">Naive Bayes</span>
+          <span class="ptag">76% Accuracy</span>
+          <span class="ptag">Python</span>
+        </div>
+      </div>
+    </div>
+    <div class="fl-card reveal" style="margin-top:20px">
+      <div class="fl-left">
+        <div class="fl-eyebrow">Live Project</div>
+        <h3>Bargain Square</h3>
+        <p>A fully functional e-commerce platform built independently as a freelance project. Demonstrates end-to-end development from architecture to customer experience.</p>
+        <a href="https://www.bargainsquare.co.uk" target="_blank">Visit bargainsquare.co.uk</a>
+      </div>
+      <div class="fl-right">
+        <div class="skill-group-l" style="margin-bottom:18px">What was delivered</div>
+        <ul class="fl-services">
+          <li>Full e-commerce site architecture and development</li>
+          <li>Product listing and catalogue management</li>
+          <li>Payment gateway integration</li>
+          <li>UI/UX design and mobile responsiveness</li>
+          <li>Ongoing maintenance and feature updates</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- LEADERSHIP -->
+<section class="section" id="leadership">
+  <div class="section-inner">
+    <div class="eyebrow reveal">Leadership</div>
+    <h2 class="sec-title reveal">Beyond the Work</h2>
+    <p class="sec-sub reveal" style="margin-bottom:48px">Organising, managing, and leading from the front.</p>
+    <div class="ldr-grid">
+      <div class="reveal-l">
+        <div class="treasurer-frame">
+          <!--
+            PHOTO INSTRUCTIONS:
+            Save your image as  treasurer-1.png  in the same folder as this HTML file.
+            The image will display automatically.
+          -->
+          <img src="treasurer-1.png" alt="Treasurer — SASTRA University" onerror="this.style.display='none'">
+        </div>
+        <div class="ldr-date">2023 – 2024</div>
+        <div class="ldr-title">Treasurer</div>
+        <div class="ldr-org">SASTRA Deemed to be University, Thanjavur, India — Bachelor's Degree</div>
+        <p class="ldr-desc">During my bachelor's I was the Treasurer for our student body. It taught me a lot — managing real money, making sure events actually happened, and being the person people could count on when it came to finances.</p>
+        <div class="ldr-tags">
+          <span class="ldr-tag">Fund Management</span>
+          <span class="ldr-tag">Budget Planning</span>
+          <span class="ldr-tag">Accountability</span>
+          <span class="ldr-tag">Event Coordination</span>
+        </div>
+      </div>
+      <div class="reveal-r">
+        <div class="eyebrow" style="margin-bottom:22px">Core Competencies</div>
+        <div class="soft-list">
+          <div class="soft-item">
+            <div class="soft-dot"></div>
+            <div>
+              <div class="soft-name">Team Leadership</div>
+              <div class="soft-desc">Led diverse groups with clarity and a results-first mindset across academic and professional settings.</div>
+            </div>
+          </div>
+          <div class="soft-item">
+            <div class="soft-dot"></div>
+            <div>
+              <div class="soft-name">Event Organisation</div>
+              <div class="soft-desc">Planned and executed university-scale events from initial concept through to delivery.</div>
+            </div>
+          </div>
+          <div class="soft-item">
+            <div class="soft-dot"></div>
+            <div>
+              <div class="soft-name">Fund Management</div>
+              <div class="soft-desc">Managed funds with transparency, precision, and financial accountability.</div>
+            </div>
+          </div>
+          <div class="soft-item">
+            <div class="soft-dot"></div>
+            <div>
+              <div class="soft-name">Planning and Execution</div>
+              <div class="soft-desc">Strategic planning that consistently translates ideas into measurable outcomes.</div>
+            </div>
+          </div>
+          <div class="soft-item">
+            <div class="soft-dot"></div>
+            <div>
+              <div class="soft-name">Building Connections</div>
+              <div class="soft-desc">Committed to growing a strong professional network across data, tech, and business communities.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CHATBOT -->
+<section class="chatbot-section" id="chatbot">
+  <div class="chatbot-inner">
+    <div class="spider-figure">
+      <div class="bot-bubble">
+        <p>I am <strong>Abzar's assistant.</strong> Leave a message and I will make sure he gets it.</p>
+        <span class="bot-email">i.mohamedabzar@gmail.com</span>
+      </div>
+      <div class="spider-char">
+        <svg viewBox="0 0 160 230" xmlns="http://www.w3.org/2000/svg" width="150" height="220">
+          <g opacity="0.07" stroke="#1a1816" stroke-width="0.8" fill="none">
+            <line x1="0" y1="0" x2="80" y2="60"/>
+            <line x1="160" y1="0" x2="80" y2="60"/>
+            <circle cx="80" cy="60" r="25" stroke-dasharray="4,4"/>
+            <circle cx="80" cy="60" r="45" stroke-dasharray="4,4"/>
+          </g>
+          <circle cx="80" cy="44" r="26" fill="#cc0000"/>
+          <ellipse cx="80" cy="44" rx="25" ry="25" fill="none" stroke="#990000" stroke-width="1.2"/>
+          <line x1="55" y1="44" x2="105" y2="44" stroke="#990000" stroke-width=".8"/>
+          <line x1="80" y1="19" x2="80" y2="69" stroke="#990000" stroke-width=".8"/>
+          <path d="M57 30 Q80 22 103 30" fill="none" stroke="#990000" stroke-width=".8"/>
+          <path d="M57 58 Q80 66 103 58" fill="none" stroke="#990000" stroke-width=".8"/>
+          <ellipse cx="70" cy="40" rx="8" ry="6" fill="white" transform="rotate(-12 70 40)"/>
+          <ellipse cx="90" cy="40" rx="8" ry="6" fill="white" transform="rotate(12 90 40)"/>
+          <ellipse cx="70" cy="40" rx="8" ry="6" fill="none" stroke="#990000" stroke-width=".8" transform="rotate(-12 70 40)"/>
+          <ellipse cx="90" cy="40" rx="8" ry="6" fill="none" stroke="#990000" stroke-width=".8" transform="rotate(12 90 40)"/>
+          <path d="M55 69 Q80 63 105 69 L100 118 Q80 124 60 118 Z" fill="#cc0000"/>
+          <path d="M55 69 Q65 94 60 118" fill="none" stroke="#990000" stroke-width=".8"/>
+          <path d="M105 69 Q95 94 100 118" fill="none" stroke="#990000" stroke-width=".8"/>
+          <line x1="55" y1="88" x2="105" y2="88" stroke="#990000" stroke-width=".8"/>
+          <line x1="57" y1="106" x2="103" y2="106" stroke="#990000" stroke-width=".8"/>
+          <ellipse cx="80" cy="86" rx="5" ry="7" fill="#1a0040"/>
+          <path d="M75 82 L62 75 M85 82 L98 75 M74 86 L61 86 M86 86 L99 86 M74 90 L62 97 M86 90 L98 97" stroke="#1a0040" stroke-width="1.4" stroke-linecap="round"/>
+          <path d="M60 118 Q80 124 100 118 L94 164 Q80 170 66 164 Z" fill="#003399"/>
+          <path d="M60 84 Q38 66 16 48" stroke="#003399" stroke-width="8" stroke-linecap="round" fill="none"/>
+          <circle cx="16" cy="48" r="6" fill="#cc0000"/>
+          <line x1="16" y1="48" x2="7" y2="39" stroke="#cc0000" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="16" y1="48" x2="10" y2="46" stroke="#cc0000" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="16" y1="48" x2="19" y2="40" stroke="#cc0000" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M13 46 L0 30" stroke="rgba(0,0,0,0.12)" stroke-width="1.2" stroke-linecap="round" fill="none" stroke-dasharray="3,3"/>
+          <path d="M100 84 Q122 96 140 112" stroke="#003399" stroke-width="8" stroke-linecap="round" fill="none"/>
+          <circle cx="140" cy="112" r="5" fill="#cc0000"/>
+          <path d="M67 164 Q52 182 38 202" stroke="#003399" stroke-width="9" stroke-linecap="round" fill="none"/>
+          <ellipse cx="35" cy="206" rx="11" ry="6" fill="#cc0000" transform="rotate(-20 35 206)"/>
+          <path d="M93 164 Q112 174 130 178" stroke="#003399" stroke-width="9" stroke-linecap="round" fill="none"/>
+          <ellipse cx="134" cy="179" rx="11" ry="6" fill="#cc0000" transform="rotate(12 134 179)"/>
+        </svg>
+      </div>
+    </div>
+    <div class="spider-form-area">
+      <div class="eyebrow reveal" style="margin-bottom:14px">Chat Assistant</div>
+      <h3 class="reveal">Send Abzar a message</h3>
+      <p class="reveal">Drop your message below and Abzar will get back to you. Or reach him directly at <strong style="color:var(--black)">i.mohamedabzar@gmail.com</strong></p>
+      <div class="chat-display" id="chatDisplay">
+        <div class="cmsg bot">Hi there. I am Abzar's assistant. What would you like to tell him? I will make sure he receives your message.</div>
+      </div>
+      <div class="chat-row">
+        <input class="chat-inp" id="chatInput" placeholder="Type your message..." onkeydown="if(event.key==='Enter')sendChat()">
+        <button class="chat-send-btn" onclick="sendChat()">Send</button>
+      </div>
+      <p class="chat-note">Your message will open your email client to send directly to Abzar.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="section-inner">
+    <div class="eyebrow reveal">Contact</div>
+    <h2 class="sec-title reveal">Get In Touch</h2>
+    <p class="sec-sub reveal" style="margin-bottom:48px">Job opportunity, project idea, or just want to say hello — feel free to reach out. I always try to reply.</p>
+    <div class="contact-grid">
+      <div class="contact-links">
+        <a href="mailto:i.mohamedabzar@gmail.com" class="contact-item reveal">
+          <div class="ci-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div>
+            <div class="ci-label">Email</div>
+            <div class="ci-val">i.mohamedabzar@gmail.com</div>
+          </div>
+        </a>
+        <a href="tel:+447823764730" class="contact-item reveal">
+          <div class="ci-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.72 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.63 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div>
+            <div class="ci-label">Phone</div>
+            <div class="ci-val">+44 7823 764730</div>
+          </div>
+        </a>
+        <a href="https://www.linkedin.com/in/mohamedabzar-27ab33323/" target="_blank" class="contact-item reveal">
+          <div class="ci-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </div>
+          <div>
+            <div class="ci-label">LinkedIn</div>
+            <div class="ci-val">mohamedabzar-27ab33323</div>
+          </div>
+        </a>
+        <a href="https://www.bargainsquare.co.uk" target="_blank" class="contact-item reveal">
+          <div class="ci-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <div>
+            <div class="ci-label">E-commerce</div>
+            <div class="ci-val">bargainsquare.co.uk</div>
+          </div>
+        </a>
+        <div class="contact-item reveal" style="cursor:default">
+          <div class="ci-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <div class="ci-label">Location</div>
+            <div class="ci-val">Liverpool, United Kingdom</div>
+          </div>
+        </div>
+      </div>
+      <div class="cf reveal-r">
+        <h3>Send a direct message</h3>
+        <div class="fg">
+          <label>Your Name</label>
+          <input type="text" id="cName" placeholder="John Smith">
+        </div>
+        <div class="fg">
+          <label>Your Email</label>
+          <input type="email" id="cEmail" placeholder="john@example.com">
+        </div>
+        <div class="fg">
+          <label>Subject</label>
+          <input type="text" id="cSubject" placeholder="Job Opportunity / Collaboration / Other">
+        </div>
+        <div class="fg">
+          <label>Message</label>
+          <textarea id="cMsg" placeholder="Hi Abzar, I would love to connect about..."></textarea>
+        </div>
+        <button class="btn-dark" onclick="sendContactEmail()" style="width:100%;justify-content:center">Send Message</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="f-name">Mohamed Abzar Abdulkarim Rahamathullah</div>
+    <div class="f-sub">MSc Computer Science — University of Liverpool &nbsp;·&nbsp; Liverpool, United Kingdom</div>
+  </div>
+  <div class="f-links">
+    <a href="mailto:i.mohamedabzar@gmail.com">Email</a>
+    <a href="https://www.linkedin.com/in/mohamedabzar-27ab33323/" target="_blank">LinkedIn</a>
+    <a href="https://www.bargainsquare.co.uk" target="_blank">Bargain Square</a>
+  </div>
+</footer>
+
+<script>
+// NAV SCROLL
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('scrolled',scrollY>40);
+});
+function toggleMenu(){document.getElementById('navLinks').classList.toggle('open')}
+document.querySelectorAll('.nav-links a').forEach(a=>{
+  a.addEventListener('click',()=>document.getElementById('navLinks').classList.remove('open'));
+});
+
+// SCROLL REVEAL
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target)}});
+},{threshold:.1});
+document.querySelectorAll('.reveal,.reveal-l,.reveal-r').forEach(el=>obs.observe(el));
+
+// SKILL BARS
+const barObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.querySelectorAll('.skill-fill').forEach(b=>{b.style.width=b.dataset.w+'%'});
+      barObs.unobserve(e.target);
+    }
+  });
+},{threshold:.15});
+document.querySelectorAll('.skills-grid').forEach(g=>barObs.observe(g));
+
+// BUILD A SITE
+function submitBuild(){
+  const email=document.getElementById('bEmail').value.trim();
+  const details=document.getElementById('bDetails').value.trim();
+  if(!email||!details){alert('Please fill in both your email and project details.');return}
+  const body=`Hi Abzar,\n\nI found you on your portfolio and I am interested in building an e-commerce site.\n\nMy email: ${email}\n\nProject details:\n${details}\n\nLooking forward to hearing from you.`;
+  window.location.href=`mailto:i.mohamedabzar@gmail.com?subject=E-commerce Site Enquiry&body=${encodeURIComponent(body)}`;
+  document.getElementById('buildFields').style.display='none';
+  document.getElementById('buildSuccess').style.display='block';
+}
+
+// CHATBOT
+function sendChat(){
+  const inp=document.getElementById('chatInput');
+  const msg=inp.value.trim();if(!msg)return;
+  const d=document.getElementById('chatDisplay');
+  d.innerHTML+=`<div class="cmsg user">${msg}</div>`;
+  inp.value='';d.scrollTop=d.scrollHeight;
+  setTimeout(()=>{
+    d.innerHTML+=`<div class="cmsg bot">Thank you. I will make sure Abzar sees your message. You can also reach him directly at i.mohamedabzar@gmail.com</div>`;
+    d.scrollTop=d.scrollHeight;
+    setTimeout(()=>{
+      window.location.href=`mailto:i.mohamedabzar@gmail.com?subject=Portfolio Message&body=${encodeURIComponent(msg)}`;
+    },600);
+  },500);
+}
+
+// CONTACT FORM
+function sendContactEmail(){
+  const n=document.getElementById('cName').value;
+  const e=document.getElementById('cEmail').value;
+  const s=document.getElementById('cSubject').value||'Portfolio Enquiry';
+  const m=document.getElementById('cMsg').value;
+  const body=`Hi Abzar,\n\nName: ${n}\nEmail: ${e}\n\nMessage:\n${m}\n\nSent via your portfolio.`;
+  window.location.href=`mailto:i.mohamedabzar@gmail.com?subject=${encodeURIComponent(s)}&body=${encodeURIComponent(body)}`;
+}
+</script>
+</body>
+</html>
