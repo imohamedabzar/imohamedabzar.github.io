@@ -1,0 +1,1490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mohamed Abzar — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:#eeeae4;
+  --cream2:#e6e1da;
+  --cream3:#ddd8d0;
+  --dark:#111111;
+  --dark2:#1a1a1a;
+  --dark3:#222222;
+  --warm-white:#f5f1eb;
+  --text:#111111;
+  --text2:#555250;
+  --text3:#888480;
+  --green:#16a34a;
+  --r:20px;
+  --r2:28px;
+  --ff:'Plus Jakarta Sans',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--ff);
+  background:var(--cream);
+  color:var(--text);
+  overflow-x:hidden;
+  line-height:1.6;
+}
+
+/* ─── NAV ─── */
+nav{
+  position:fixed;
+  top:20px;
+  left:50%;
+  transform:translateX(-50%);
+  background:var(--dark);
+  border-radius:50px;
+  padding:10px 10px 10px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:0;
+  z-index:1000;
+  min-width:520px;
+  max-width:620px;
+  width:calc(100% - 40px);
+  box-shadow:0 4px 32px rgba(0,0,0,.18);
+}
+.nav-logo{
+  font-size:.88rem;
+  font-weight:700;
+  color:#fff;
+  text-decoration:none;
+  letter-spacing:-.01em;
+  white-space:nowrap;
+}
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:4px;
+  list-style:none;
+}
+.nav-links a{
+  color:rgba(255,255,255,.65);
+  text-decoration:none;
+  font-size:.8rem;
+  font-weight:500;
+  padding:6px 12px;
+  border-radius:30px;
+  transition:color .2s,background .2s;
+}
+.nav-links a:hover{color:#fff;background:rgba(255,255,255,.1)}
+.nav-cta{
+  background:#fff;
+  color:var(--dark)!important;
+  font-weight:700!important;
+  padding:8px 18px!important;
+  border-radius:30px!important;
+}
+.nav-cta:hover{background:rgba(255,255,255,.9)!important;color:var(--dark)!important}
+.nav-mobile-toggle{
+  display:none;
+  background:rgba(255,255,255,.1);
+  border:none;
+  color:#fff;
+  width:36px;height:36px;
+  border-radius:50%;
+  cursor:pointer;
+  font-size:1.1rem;
+  align-items:center;justify-content:center;
+}
+.mobile-menu{
+  display:none;
+  position:fixed;
+  top:76px;left:16px;right:16px;
+  background:var(--dark);
+  border-radius:16px;
+  padding:16px;
+  z-index:999;
+  flex-direction:column;
+  gap:4px;
+}
+.mobile-menu.open{display:flex}
+.mobile-menu a{
+  color:rgba(255,255,255,.75);
+  text-decoration:none;
+  font-size:.9rem;
+  font-weight:500;
+  padding:10px 14px;
+  border-radius:10px;
+}
+.mobile-menu a:hover{background:rgba(255,255,255,.08);color:#fff}
+
+/* ─── HERO ─── */
+#hero{
+  background:var(--dark);
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  padding:120px 60px 70px;
+  position:relative;
+  overflow:hidden;
+}
+.hero-noise{
+  position:absolute;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  opacity:.4;pointer-events:none;
+}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:30px;
+  padding:7px 16px;
+  font-size:.75rem;
+  color:rgba(255,255,255,.65);
+  font-weight:600;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  margin-bottom:36px;
+}
+.hero-tag .dot{
+  width:7px;height:7px;
+  background:var(--green);
+  border-radius:50%;
+  animation:pulse 2s infinite;
+}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.hero-top{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:40px;
+  margin-bottom:50px;
+}
+.hero-name{
+  font-size:clamp(3.2rem,8vw,8rem);
+  font-weight:800;
+  color:#fff;
+  line-height:1;
+  letter-spacing:-.04em;
+  flex:1;
+}
+.hero-name span{color:rgba(255,255,255,.45)}
+.hero-photo{
+  width:clamp(120px,16vw,200px);
+  height:clamp(120px,16vw,200px);
+  border-radius:50%;
+  overflow:hidden;
+  border:2px solid rgba(255,255,255,.12);
+  flex-shrink:0;
+}
+.hero-photo img{width:100%;height:100%;object-fit:cover}
+.hero-bottom{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding-top:32px;
+  border-top:1px solid rgba(255,255,255,.1);
+  gap:24px;
+  flex-wrap:wrap;
+}
+.hero-roles{
+  font-size:.88rem;
+  color:rgba(255,255,255,.5);
+  font-weight:500;
+}
+.hero-btns{
+  display:flex;gap:10px;flex-wrap:wrap;
+}
+.btn-dark-outline{
+  display:inline-flex;align-items:center;gap:6px;
+  border:1px solid rgba(255,255,255,.2);
+  color:#fff;
+  padding:10px 22px;
+  border-radius:30px;
+  font-size:.82rem;
+  font-weight:600;
+  text-decoration:none;
+  font-family:var(--ff);
+  transition:background .2s,border-color .2s;
+  cursor:pointer;background:transparent;
+}
+.btn-dark-outline:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.35)}
+.btn-dark-fill{
+  display:inline-flex;align-items:center;gap:6px;
+  background:#fff;color:var(--dark);
+  padding:10px 22px;
+  border-radius:30px;
+  font-size:.82rem;
+  font-weight:700;
+  text-decoration:none;
+  font-family:var(--ff);
+  transition:opacity .2s;
+  border:none;cursor:pointer;
+}
+.btn-dark-fill:hover{opacity:.88}
+
+/* ─── SECTION SHARED ─── */
+section{padding:100px 60px}
+.s-inner{max-width:1200px;margin:0 auto}
+.s-label{
+  font-size:.7rem;
+  font-weight:700;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--text3);
+  margin-bottom:16px;
+  display:block;
+}
+.s-title{
+  font-size:clamp(2.2rem,4.5vw,3.8rem);
+  font-weight:800;
+  line-height:1.08;
+  letter-spacing:-.03em;
+  color:var(--text);
+  margin-bottom:16px;
+}
+.s-sub{
+  font-size:1rem;
+  color:var(--text2);
+  max-width:520px;
+  line-height:1.65;
+  margin-bottom:56px;
+}
+
+/* reveal animations */
+.reveal,.reveal-l,.reveal-r{opacity:0;transition:opacity .6s ease,transform .6s ease}
+.reveal{transform:translateY(24px)}
+.reveal-l{transform:translateX(-24px)}
+.reveal-r{transform:translateX(24px)}
+.reveal.in,.reveal-l.in,.reveal-r.in{opacity:1;transform:none}
+
+/* ─── ABOUT ─── */
+#about{background:var(--warm-white)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.about-text p{font-size:.95rem;color:var(--text2);line-height:1.75;margin-bottom:16px}
+.about-stats{
+  display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:36px;
+}
+.stat-card{
+  background:var(--cream2);
+  border-radius:var(--r);
+  padding:22px 20px;
+}
+.stat-card .num{font-size:1.6rem;font-weight:800;color:var(--text);letter-spacing:-.03em}
+.stat-card .lbl{font-size:.72rem;color:var(--text3);line-height:1.4;margin-top:6px}
+
+.about-highlights{display:flex;flex-direction:column;gap:16px}
+.hl-card{
+  background:var(--cream2);
+  border-radius:var(--r);
+  padding:22px 24px;
+  display:flex;align-items:flex-start;gap:18px;
+}
+.hl-icon{font-size:1.4rem;width:44px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:12px;flex-shrink:0}
+.hl-icon.b{background:rgba(37,99,235,.1)}
+.hl-icon.c{background:rgba(8,145,178,.1)}
+.hl-icon.v{background:rgba(124,58,237,.1)}
+.hl-icon.g{background:rgba(217,119,6,.1)}
+.hl-card h4{font-size:.88rem;font-weight:700;color:var(--text);margin-bottom:4px}
+.hl-card p{font-size:.8rem;color:var(--text3);line-height:1.5}
+
+.ai-box{
+  margin-top:40px;
+  background:var(--dark2);
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:var(--r2);
+  padding:28px 32px;
+}
+.ai-box-label{font-size:.65rem;font-weight:700;letter-spacing:.12em;color:rgba(255,255,255,.35);text-transform:uppercase;margin-bottom:10px}
+.ai-box p{font-size:.92rem;color:rgba(255,255,255,.7);line-height:1.75}
+.ai-box strong{color:#fff}
+
+/* ─── EXPERIENCE ─── */
+#experience{background:var(--cream)}
+.exp-table{margin-top:0;border-top:1px solid var(--cream3)}
+.exp-row{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:24px;
+  align-items:start;
+  padding:28px 0;
+  border-bottom:1px solid var(--cream3);
+  transition:background .2s;
+}
+.exp-row:hover{background:rgba(0,0,0,.015);margin:0 -16px;padding:28px 16px;border-radius:12px;border-color:transparent}
+.exp-org-wrap{display:flex;align-items:center;gap:14px}
+.exp-logo{
+  width:44px;height:44px;
+  border-radius:10px;overflow:hidden;flex-shrink:0;
+  background:var(--cream2);display:flex;align-items:center;justify-content:center;
+}
+.exp-logo img{width:100%;height:100%;object-fit:cover}
+.exp-name{font-size:.95rem;font-weight:700;color:var(--text)}
+.exp-role{font-size:.8rem;color:var(--text3);margin-top:3px}
+.exp-date{font-size:.78rem;color:var(--text3);font-weight:500;white-space:nowrap;text-align:right;margin-top:4px}
+.exp-prog{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--cream2);
+  border-radius:20px;padding:4px 12px;margin-top:8px;
+}
+.exp-prog span{font-size:.7rem;font-weight:600;color:var(--text3)}
+.exp-prog .sep{color:var(--cream3)}
+.exp-prog .cur{color:var(--text);font-weight:700}
+.exp-bullets{margin-top:12px;padding-left:16px}
+.exp-bullets li{font-size:.8rem;color:var(--text2);line-height:1.6;margin-bottom:4px}
+.exp-note{font-size:.75rem;color:var(--text3);font-style:italic;margin-top:8px}
+
+/* ─── SKILLS ─── */
+#skills{background:var(--warm-white)}
+.skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.skill-card{
+  background:var(--cream2);
+  border-radius:var(--r2);
+  padding:30px;
+}
+.skill-num{
+  font-size:.7rem;font-weight:700;letter-spacing:.1em;
+  color:var(--text3);text-transform:uppercase;margin-bottom:20px;
+}
+.skill-card h3{font-size:1rem;font-weight:700;color:var(--text);margin-bottom:6px}
+.skill-cat{
+  display:inline-block;
+  font-size:.65rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--text3);
+  background:rgba(0,0,0,.06);
+  padding:3px 10px;border-radius:20px;margin-bottom:20px;
+}
+.bar-row{margin-bottom:10px}
+.bar-label{display:flex;justify-content:space-between;font-size:.75rem;color:var(--text2);margin-bottom:5px;font-weight:500}
+.bar-track{background:var(--cream3);border-radius:4px;height:5px;overflow:hidden}
+.bar-fill{height:100%;background:var(--dark);border-radius:4px;width:0;transition:width 1s ease}
+.app-logos{display:flex;flex-wrap:wrap;gap:12px;margin-top:4px}
+.app-logo-item{display:flex;flex-direction:column;align-items:center;gap:5px}
+.app-logo-item img{width:40px;height:40px;border-radius:10px;object-fit:cover}
+.app-logo-item span{font-size:.65rem;color:var(--text3);font-weight:600}
+.prod-logos{display:flex;flex-wrap:wrap;gap:12px}
+.prod-item{display:flex;flex-direction:column;align-items:center;gap:5px}
+.prod-item img{width:40px;height:40px;border-radius:10px;object-fit:cover}
+.prod-item span{font-size:.65rem;color:var(--text3);font-weight:600}
+.ip-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px}
+.ip-tag{
+  font-size:.72rem;font-weight:600;
+  background:rgba(0,0,0,.06);
+  color:var(--text2);
+  padding:6px 14px;border-radius:30px;
+}
+
+/* ─── NEXZEN ─── */
+#nexzen{background:var(--dark);padding:100px 60px}
+#nexzen .s-label{color:rgba(255,255,255,.35)}
+#nexzen .s-title{color:#fff}
+#nexzen .s-sub{color:rgba(255,255,255,.5)}
+.nxz-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.nxz-info{padding-right:20px}
+.nxz-logo{width:52px;height:52px;border-radius:12px;object-fit:contain;margin-bottom:20px;background:#fff;padding:6px}
+.nxz-badge{
+  display:inline-flex;align-items:center;gap:7px;
+  background:rgba(22,163,74,.15);
+  border:1px solid rgba(22,163,74,.25);
+  border-radius:30px;padding:5px 14px;
+  font-size:.72rem;font-weight:700;color:rgba(22,163,74,.9);
+  margin-bottom:16px;
+}
+.nxz-badge .dot{width:6px;height:6px;background:var(--green);border-radius:50%;animation:pulse 2s infinite}
+.nxz-role{font-size:.8rem;color:rgba(255,255,255,.45);margin-bottom:16px}
+.nxz-desc{font-size:.88rem;color:rgba(255,255,255,.65);line-height:1.75;margin-bottom:28px}
+.nxz-preview{
+  border-radius:var(--r2);
+  overflow:hidden;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);
+  aspect-ratio:4/3;
+}
+.browser-bar{
+  background:rgba(255,255,255,.06);
+  padding:10px 14px;
+  display:flex;align-items:center;gap:10px;
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.browser-dots{display:flex;gap:5px}
+.browser-dots span{width:9px;height:9px;border-radius:50%;display:block}
+.browser-url{
+  flex:1;background:rgba(255,255,255,.06);border-radius:8px;
+  padding:4px 10px;font-size:.7rem;color:rgba(255,255,255,.35);
+}
+.browser-content{flex:1;overflow:hidden;position:relative}
+.browser-content img{width:100%;height:100%;object-fit:cover;object-position:top}
+.site-frame-wrap{position:absolute;inset:0;overflow:hidden;background:var(--cream2)}
+.site-frame{width:200%;height:200%;border:none;pointer-events:none;transform:scale(.5);transform-origin:top left;display:block}
+.proj-frame-wrap{position:absolute;inset:0;overflow:hidden;background:var(--cream2)}
+.proj-frame{width:200%;height:200%;border:none;pointer-events:none;transform:scale(.5);transform-origin:top left;display:block}
+
+/* ─── PROJECTS ─── */
+#projects{background:var(--cream)}
+.proj-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+}
+.proj-card-img{
+  border-radius:var(--r2);
+  overflow:hidden;
+  position:relative;
+  aspect-ratio:4/3;
+  background:var(--cream2);
+  display:block;
+  text-decoration:none;
+}
+.proj-card-img img{
+  width:100%;height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform .4s ease;
+}
+.proj-card-img:hover img{transform:scale(1.04)}
+.proj-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top, rgba(0,0,0,.72) 0%, rgba(0,0,0,.2) 50%, transparent 100%);
+}
+.proj-meta{
+  position:absolute;bottom:0;left:0;right:0;
+  padding:24px;
+  display:flex;align-items:flex-end;justify-content:space-between;
+  gap:16px;
+}
+.proj-info{}
+.proj-name{font-size:1rem;font-weight:700;color:#fff;line-height:1.3}
+.proj-cat{font-size:.7rem;font-weight:600;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px}
+.proj-discover{
+  font-size:.75rem;font-weight:700;color:rgba(255,255,255,.8);
+  white-space:nowrap;
+  background:rgba(255,255,255,.12);
+  padding:7px 14px;border-radius:30px;
+  flex-shrink:0;
+  border:1px solid rgba(255,255,255,.15);
+}
+.proj-card-plain{
+  background:var(--cream2);
+  border-radius:var(--r2);
+  padding:30px;
+  position:relative;
+  overflow:hidden;
+}
+.proj-num{font-size:.7rem;font-weight:700;letter-spacing:.1em;color:var(--text3);text-transform:uppercase;margin-bottom:16px}
+.proj-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.proj-tag{
+  font-size:.68rem;font-weight:600;
+  background:rgba(0,0,0,.07);color:var(--text2);
+  padding:4px 11px;border-radius:30px;
+}
+.proj-card-plain h3{font-size:1rem;font-weight:700;color:var(--text);line-height:1.4;margin-bottom:12px}
+.proj-card-plain p{font-size:.82rem;color:var(--text2);line-height:1.65}
+
+/* ─── QUID STORY ─── */
+#creative{background:var(--warm-white)}
+.qs-grid{display:grid;grid-template-columns:1fr 1.6fr;gap:48px;align-items:start}
+.qs-brand-card{
+  background:var(--dark);
+  border-radius:var(--r2);
+  padding:40px 32px;
+  text-align:center;
+}
+.qs-icon{font-size:3rem;margin-bottom:20px;display:block}
+.qs-brand-card h3{font-size:1.4rem;font-weight:800;color:#fff;margin-bottom:6px;letter-spacing:-.02em}
+.qs-handle{font-size:.82rem;color:rgba(255,255,255,.45);margin-bottom:16px}
+.qs-desc{font-size:.82rem;color:rgba(255,255,255,.6);line-height:1.65;margin-bottom:24px}
+.qs-visit{
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(255,255,255,.1);
+  border:1px solid rgba(255,255,255,.15);
+  color:#fff;font-weight:600;font-size:.8rem;
+  padding:9px 20px;border-radius:30px;
+  text-decoration:none;
+  transition:background .2s;
+}
+.qs-visit:hover{background:rgba(255,255,255,.18)}
+.qs-info h3{font-size:1.3rem;font-weight:800;color:var(--text);letter-spacing:-.02em;margin-bottom:16px}
+.qs-info p{font-size:.88rem;color:var(--text2);line-height:1.75;margin-bottom:16px}
+.qs-topics{display:flex;flex-wrap:wrap;gap:7px;margin:20px 0}
+.qs-topic{
+  font-size:.72rem;font-weight:600;
+  background:var(--cream2);color:var(--text2);
+  padding:6px 14px;border-radius:30px;
+}
+.qs-skill-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}
+.qs-skill-tag{
+  font-size:.7rem;font-weight:600;
+  background:rgba(0,0,0,.06);color:var(--text3);
+  padding:5px 12px;border-radius:30px;
+}
+
+/* ─── BOOK ─── */
+#published{background:var(--cream)}
+.book-grid{display:grid;grid-template-columns:auto 1fr;gap:60px;align-items:center}
+.book-wrap{
+  position:relative;
+  flex-shrink:0;
+}
+.book-cover-img{
+  width:clamp(160px,22vw,260px);
+  display:block;
+  border-radius:14px;
+  box-shadow:12px 12px 40px rgba(0,0,0,.18),-4px -4px 20px rgba(0,0,0,.08);
+}
+.pub-label{
+  font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--text3);margin-bottom:14px;
+}
+.pub-title{
+  font-size:clamp(2rem,4vw,3rem);font-weight:800;
+  letter-spacing:-.04em;line-height:1.1;
+  color:var(--text);margin-bottom:14px;
+}
+.pub-sub{font-size:.9rem;color:var(--text2);line-height:1.7;max-width:440px;margin-bottom:20px}
+.pub-meta{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:24px}
+.pub-meta span{font-size:.78rem;color:var(--text3);font-weight:500}
+.pub-btns{display:flex;gap:10px;flex-wrap:wrap}
+.pub-btn{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:.82rem;font-weight:700;
+  padding:10px 20px;border-radius:30px;
+  text-decoration:none;
+  font-family:var(--ff);
+  transition:opacity .2s;
+}
+.pub-btn.primary{background:var(--dark);color:#fff}
+.pub-btn.secondary{background:var(--cream2);color:var(--text)}
+.pub-btn:hover{opacity:.8}
+
+/* ─── INTERESTS ─── */
+#interests{background:var(--warm-white)}
+.int-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.int-card{background:var(--cream2);border-radius:var(--r);padding:28px 24px}
+.int-icon{font-size:1.8rem;margin-bottom:16px;display:block}
+.int-card h4{font-size:.92rem;font-weight:700;color:var(--text);margin-bottom:10px}
+.int-card p{font-size:.8rem;color:var(--text2);line-height:1.6}
+
+/* ─── LEADERSHIP ─── */
+#leadership{background:var(--cream)}
+.lead-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.lead-left{background:var(--cream2);border-radius:var(--r2);padding:32px;overflow:hidden}
+.lead-img{width:100%;height:200px;object-fit:cover;border-radius:var(--r);margin-bottom:20px}
+.lead-date-label{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:8px}
+.lead-role-title{font-size:1.3rem;font-weight:800;color:var(--text);letter-spacing:-.02em;margin-bottom:6px}
+.lead-org{font-size:.78rem;color:var(--text3);margin-bottom:14px}
+.lead-desc{font-size:.82rem;color:var(--text2);line-height:1.65;margin-bottom:20px}
+.lead-tags{display:flex;flex-wrap:wrap;gap:7px}
+.lead-tag{font-size:.7rem;font-weight:600;background:rgba(0,0,0,.07);color:var(--text2);padding:5px 12px;border-radius:30px}
+.comp-label{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:16px}
+.comp-cards{display:flex;flex-direction:column;gap:12px}
+.comp-card{background:var(--cream2);border-radius:var(--r);padding:20px 22px}
+.comp-card h4{font-size:.88rem;font-weight:700;color:var(--text);margin-bottom:6px}
+.comp-card p{font-size:.78rem;color:var(--text2);line-height:1.55}
+
+/* ─── CTA ─── */
+#cta{
+  background:var(--dark);
+  padding:120px 60px;
+  text-align:center;
+}
+.cta-label{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:28px;display:block}
+.cta-title{
+  font-size:clamp(3rem,7vw,7rem);
+  font-weight:800;
+  color:#fff;
+  letter-spacing:-.05em;
+  line-height:1;
+  margin-bottom:48px;
+}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+/* ─── CONTACT ─── */
+#contact{background:var(--cream)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.c-cards{display:flex;flex-direction:column;gap:12px}
+.c-card{
+  background:var(--cream2);
+  border-radius:var(--r);
+  padding:18px 22px;
+  display:flex;align-items:center;gap:14px;
+  text-decoration:none;
+  transition:background .2s;
+}
+.c-card:hover{background:var(--cream3)}
+.c-icon{
+  width:38px;height:38px;
+  background:rgba(0,0,0,.06);border-radius:10px;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.c-card h4{font-size:.85rem;font-weight:700;color:var(--text);margin-bottom:2px}
+.c-card p{font-size:.72rem;color:var(--text3)}
+.contact-form{background:var(--cream2);border-radius:var(--r2);padding:36px}
+.contact-form h3{font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:24px}
+.form-group{margin-bottom:16px}
+.form-group label{display:block;font-size:.75rem;font-weight:600;color:var(--text2);margin-bottom:7px}
+.form-group input,.form-group select,.form-group textarea{
+  width:100%;
+  background:var(--cream);
+  border:1px solid var(--cream3);
+  border-radius:10px;
+  padding:11px 14px;
+  font-family:var(--ff);
+  font-size:.85rem;color:var(--text);
+  outline:none;transition:border-color .2s;
+}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--dark)}
+.btn-submit{
+  width:100%;
+  background:var(--dark);color:#fff;
+  border:none;cursor:pointer;
+  font-family:var(--ff);font-weight:700;font-size:.85rem;
+  padding:13px 20px;border-radius:30px;
+  transition:opacity .2s;
+}
+.btn-submit:hover{opacity:.85}
+
+/* ─── HIRE ─── */
+#hire{background:var(--warm-white);padding:80px 60px}
+.hire-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;max-width:1200px;margin:0 auto;align-items:center}
+.hire-left h2{font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:800;letter-spacing:-.03em;color:var(--text);margin-bottom:14px;line-height:1.2}
+.hire-left p{font-size:.88rem;color:var(--text2);line-height:1.7;margin-bottom:24px}
+.btn-hire{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--dark);color:#fff;
+  font-size:.85rem;font-weight:700;font-family:var(--ff);
+  padding:12px 26px;border-radius:30px;text-decoration:none;
+  transition:opacity .2s;
+}
+.btn-hire:hover{opacity:.85}
+.hire-form-card{background:var(--cream2);border-radius:var(--r2);padding:32px}
+.hire-form-card h3{font-size:1rem;font-weight:700;color:var(--text);margin-bottom:6px}
+.hire-form-card p{font-size:.8rem;color:var(--text3);margin-bottom:20px}
+.hire-form-card label{display:block;font-size:.75rem;font-weight:600;color:var(--text2);margin-bottom:7px}
+.hire-form-card input,.hire-form-card textarea{
+  width:100%;background:var(--cream);border:1px solid var(--cream3);
+  border-radius:10px;padding:11px 14px;
+  font-family:var(--ff);font-size:.85rem;color:var(--text);
+  outline:none;margin-bottom:12px;transition:border-color .2s;
+}
+.hire-form-card input:focus,.hire-form-card textarea:focus{border-color:var(--dark)}
+.btn-enquiry{
+  width:100%;background:var(--dark);color:#fff;
+  border:none;cursor:pointer;font-family:var(--ff);font-weight:700;font-size:.85rem;
+  padding:12px;border-radius:30px;transition:opacity .2s;
+}
+.btn-enquiry:hover{opacity:.85}
+
+/* ─── FOOTER ─── */
+footer{background:var(--dark);padding:60px 60px 40px}
+.footer-inner{max-width:1200px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:1fr 2fr;gap:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:32px}
+.footer-logo{font-size:1.1rem;font-weight:800;color:#fff;text-decoration:none;letter-spacing:-.02em;display:block;margin-bottom:12px}
+.footer-tagline{font-size:.82rem;color:rgba(255,255,255,.4);line-height:1.6}
+.footer-nav{display:grid;grid-template-columns:repeat(2,1fr);gap:4px}
+.footer-nav a{
+  font-size:.85rem;font-weight:600;color:rgba(255,255,255,.55);
+  text-decoration:none;padding:6px 0;
+  transition:color .2s;display:flex;align-items:center;justify-content:space-between;
+}
+.footer-nav a:hover{color:#fff}
+.footer-nav a::after{content:'↗';font-size:.7rem;color:rgba(255,255,255,.25)}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.footer-copy{font-size:.75rem;color:rgba(255,255,255,.3)}
+.footer-loc{font-size:.75rem;color:rgba(255,255,255,.3)}
+
+/* ─── SPIDER CHAT ─── */
+.spider-wrap{
+  position:fixed;bottom:28px;right:28px;z-index:900;
+  display:flex;flex-direction:column;align-items:flex-end;gap:8px;
+}
+.spider-char{cursor:pointer;filter:drop-shadow(0 4px 12px rgba(0,0,0,.2));transition:transform .2s}
+.spider-char:hover{transform:translateY(-4px)}
+.spider-bubble{
+  display:block;
+  background:var(--dark);color:#fff;
+  font-size:.78rem;font-weight:600;font-family:var(--ff);
+  padding:10px 16px;border-radius:12px;
+  text-decoration:none;
+  box-shadow:0 4px 20px rgba(0,0,0,.2);
+  max-width:220px;text-align:center;
+  border:1px solid rgba(255,255,255,.1);
+  animation:floatBubble 3s ease-in-out infinite;
+}
+@keyframes floatBubble{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:900px){
+  section{padding:80px 24px}
+  #hero{padding:100px 24px 60px}
+  nav{min-width:0;max-width:calc(100% - 32px)}
+  .nav-links{display:none}
+  .nav-mobile-toggle{display:flex}
+  .hero-top{flex-direction:column-reverse;align-items:flex-start;margin-bottom:32px}
+  .hero-name{font-size:clamp(2.4rem,10vw,4rem)}
+  .hero-photo{width:80px;height:80px}
+  .about-grid,.nxz-grid,.book-grid,.contact-grid,.lead-grid,.hire-grid{grid-template-columns:1fr}
+  .skills-grid{grid-template-columns:1fr}
+  .proj-grid{grid-template-columns:1fr}
+  .int-grid{grid-template-columns:1fr 1fr}
+  .qs-grid{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr}
+  .footer-nav{grid-template-columns:1fr}
+  #nexzen{padding:80px 24px}
+  #cta{padding:80px 24px}
+  #hire{padding:80px 24px}
+  footer{padding:40px 24px 28px}
+}
+@media(max-width:600px){
+  .int-grid{grid-template-columns:1fr}
+  .hero-bottom{flex-direction:column;align-items:flex-start}
+  .cta-title{font-size:clamp(2.2rem,10vw,4rem)}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">Mohamed Abzar</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Work</a></li>
+    <li><a href="#creative">Creative</a></li>
+    <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
+  </ul>
+  <button class="nav-mobile-toggle" onclick="toggleMobileMenu()" aria-label="Menu">☰</button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMobileMenu()">About</a>
+  <a href="#experience" onclick="closeMobileMenu()">Experience</a>
+  <a href="#skills" onclick="closeMobileMenu()">Skills</a>
+  <a href="#projects" onclick="closeMobileMenu()">Work</a>
+  <a href="#creative" onclick="closeMobileMenu()">Creative</a>
+  <a href="#published" onclick="closeMobileMenu()">Published</a>
+  <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-noise"></div>
+  <div style="max-width:1200px;margin:0 auto;width:100%">
+    <div class="hero-tag">
+      <span class="dot"></span>
+      Open to opportunities
+    </div>
+    <div class="hero-top">
+      <h1 class="hero-name">Mohamed<br><span>Abzar.</span></h1>
+      <div class="hero-photo">
+        <img src="profile.jpeg" alt="Mohamed Abzar" onerror="this.style.display='none'">
+      </div>
+    </div>
+    <div class="hero-bottom">
+      <p class="hero-roles">E-commerce Developer &nbsp;·&nbsp; Data Enthusiast &nbsp;·&nbsp; Entrepreneur</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn-dark-fill">Get in Touch ↗</a>
+        <a href="#projects" class="btn-dark-outline">My Work</a>
+        <a href="#nexzen" class="btn-dark-outline">My Ventures</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="s-inner">
+    <span class="s-label">About Me</span>
+    <h2 class="s-title reveal">Technology.<br>Business. Creativity.</h2>
+    <div class="about-grid">
+      <div class="reveal">
+        <p class="about-text" style="margin-bottom:0">
+          <span style="display:block;font-size:.95rem;color:var(--text2);line-height:1.75;margin-bottom:14px">I'm a technology enthusiast who enjoys building things, exploring new systems and learning how ideas can be transformed into practical solutions.</span>
+          <span style="display:block;font-size:.95rem;color:var(--text2);line-height:1.75;margin-bottom:14px">My interests span e-commerce development, data analytics, technology and digital creativity. Alongside my professional experience and studies, I am building NexZen Cart as an independent side venture.</span>
+          <span style="display:block;font-size:.95rem;color:var(--text2);line-height:1.75;margin-bottom:14px">I also enjoy experimenting with AI-powered content creation, video editing and creative tools in my spare time. Beyond technology, I value interacting with people, exchanging ideas and building meaningful professional connections.</span>
+        </p>
+        <div class="about-stats">
+          <div class="stat-card">
+            <div class="num">MSc</div>
+            <div class="lbl">Computer Science<br>University of Liverpool</div>
+          </div>
+          <div class="stat-card">
+            <div class="num">3</div>
+            <div class="lbl">Live digital<br>ventures</div>
+          </div>
+          <div class="stat-card">
+            <div class="num">1</div>
+            <div class="lbl">Published<br>e-book</div>
+          </div>
+          <div class="stat-card">
+            <div class="num" style="font-size:1rem">Treasurer</div>
+            <div class="lbl">School of Chemical &amp; Biotech<br>Student Assoc · SASTRA Univ</div>
+          </div>
+        </div>
+        <div class="ai-box reveal" style="margin-top:24px">
+          <div class="ai-box-label">AI-First Mindset</div>
+          <p>AI is changing everything fast and I want to stay ahead of it, not behind it. I use <strong>Claude AI</strong> and <strong>ChatGPT</strong> regularly and I am always looking at ways to bring AI into whatever I am working on.</p>
+        </div>
+      </div>
+      <div>
+        <div class="about-highlights">
+          <div class="hl-card reveal">
+            <div class="hl-icon b">🛒</div>
+            <div>
+              <h4>E-commerce Developer</h4>
+              <p>Building and running online stores across Shopify, Amazon, eBay and TikTok Shop</p>
+            </div>
+          </div>
+          <div class="hl-card reveal">
+            <div class="hl-icon c">📊</div>
+            <div>
+              <h4>Data Enthusiast</h4>
+              <p>Python, SQL, Power BI and machine learning for practical data analysis</p>
+            </div>
+          </div>
+          <div class="hl-card reveal">
+            <div class="hl-icon v">🚀</div>
+            <div>
+              <h4>Entrepreneur</h4>
+              <p>Independently building NexZen Cart alongside professional commitments</p>
+            </div>
+          </div>
+          <div class="hl-card reveal">
+            <div class="hl-icon g">🎬</div>
+            <div>
+              <h4>Creative &amp; AI Content</h4>
+              <p>Running The Quid Story — AI-generated short-form videos on business &amp; finance</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="s-inner">
+    <span class="s-label">Professional Experience</span>
+    <h2 class="s-title reveal">Where I've Worked</h2>
+    <p class="s-sub reveal">My professional journey across e-commerce, hospitality, digital marketing and retail.</p>
+    <div class="exp-table">
+
+      <!-- Primark -->
+      <div class="exp-row reveal">
+        <div>
+          <div class="exp-org-wrap">
+            <div class="exp-logo"><img src="primark.jpeg" alt="Primark" onerror="this.style.background='var(--cream3)'"></div>
+            <div>
+              <div class="exp-name">Primark – Liverpool</div>
+              <div class="exp-role">Part-Time Zoning Staff</div>
+            </div>
+          </div>
+          <ul class="exp-bullets">
+            <li>Store organisation, presentation and zoning</li>
+            <li>Maintaining store standards in a fast-paced environment</li>
+            <li>Teamwork and collaboration across departments</li>
+          </ul>
+        </div>
+        <div class="exp-date">Oct 2026 – Present</div>
+      </div>
+
+      <!-- Bargain Square -->
+      <div class="exp-row reveal">
+        <div>
+          <div class="exp-org-wrap">
+            <div class="exp-logo"><img src="bargainsquare.jpeg" alt="Bargain Square" onerror="this.style.background='var(--cream3)'"></div>
+            <div>
+              <div class="exp-name"><a href="https://www.bargainsquare.co.uk" target="_blank" style="color:inherit;text-decoration:none">Bargain Square</a></div>
+              <div class="exp-role">E-commerce Developer &amp; Manager → Retail Assistant</div>
+            </div>
+          </div>
+          <div class="exp-prog">
+            <span>Retail Assistant</span>
+            <span class="sep">→</span>
+            <span class="cur">E-commerce Developer &amp; Manager</span>
+          </div>
+          <ul class="exp-bullets">
+            <li>Building and maintaining the company's e-commerce website and digital storefronts</li>
+            <li>Managing online sales across Shopify, Amazon, eBay, TikTok Shop and Temu</li>
+            <li>Website improvements, digital operations and online presence development</li>
+          </ul>
+        </div>
+        <div class="exp-date">Apr 2025 – Present</div>
+      </div>
+
+      <!-- Cafy -->
+      <div class="exp-row reveal">
+        <div>
+          <div class="exp-org-wrap">
+            <div class="exp-logo"><img src="https://www.cafy.careers/company-logo-64.webp" alt="Cafy" onerror="this.style.background='var(--cream3)'"></div>
+            <div>
+              <div class="exp-name"><a href="https://www.cafy.careers" target="_blank" style="color:inherit;text-decoration:none">Cafy Careers</a></div>
+              <div class="exp-role">Digital Marketing Executive Intern</div>
+            </div>
+          </div>
+          <ul class="exp-bullets">
+            <li>Digital marketing, online presence and marketing activity support</li>
+            <li>Content and campaign creation across LinkedIn and Instagram</li>
+            <li>Digital business promotion and community engagement</li>
+          </ul>
+          <div class="exp-note">I continue to volunteer at Cafy events and regularly participate in professional networking opportunities.</div>
+        </div>
+        <div class="exp-date">Apr 2026 – Aug 2026</div>
+      </div>
+
+      <!-- Radisson Blu -->
+      <div class="exp-row reveal">
+        <div>
+          <div class="exp-org-wrap">
+            <div class="exp-logo"><img src="radisson.jpeg" alt="Radisson Blu" onerror="this.style.background='var(--cream3)'"></div>
+            <div>
+              <div class="exp-name">Radisson Blu</div>
+              <div class="exp-role">Hospitality Staff</div>
+            </div>
+          </div>
+          <ul class="exp-bullets">
+            <li>Customer interaction and professional communication in a premium hotel environment</li>
+            <li>Hospitality operations and team collaboration</li>
+            <li>Working effectively in a fast-paced, customer-facing role</li>
+          </ul>
+        </div>
+        <div class="exp-date">Oct 2024 – Jun 2026</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="s-inner">
+    <span class="s-label">Skills</span>
+    <h2 class="s-title reveal">What I Work With</h2>
+    <p class="s-sub reveal">Technical, creative, productivity and interpersonal skills organised clearly.</p>
+    <div class="skills-grid">
+
+      <div class="skill-card reveal">
+        <div class="skill-num">( 001 )</div>
+        <h3>Programming &amp; Development</h3>
+        <span class="skill-cat">Technical</span>
+        <div class="bar-row"><div class="bar-label"><span>E-commerce Development</span><span>80%</span></div><div class="bar-track"><div class="bar-fill" data-w="80"></div></div></div>
+        <div class="bar-row"><div class="bar-label"><span>Web Development</span><span>75%</span></div><div class="bar-track"><div class="bar-fill" data-w="75"></div></div></div>
+        <div class="bar-row"><div class="bar-label"><span>Python</span><span>65%</span></div><div class="bar-track"><div class="bar-fill" data-w="65"></div></div></div>
+        <div class="bar-row"><div class="bar-label"><span>SQL</span><span>65%</span></div><div class="bar-track"><div class="bar-fill" data-w="65"></div></div></div>
+        <div class="bar-row"><div class="bar-label"><span>GitHub</span><span>70%</span></div><div class="bar-track"><div class="bar-fill" data-w="70"></div></div></div>
+        <div class="bar-row"><div class="bar-label"><span>UI/UX Development</span><span>65%</span></div><div class="bar-track"><div class="bar-fill" data-w="65"></div></div></div>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="skill-num">( 002 )</div>
+        <h3>Data Analytics &amp; Modelling</h3>
+        <span class="skill-cat">Analytics</span>
+        <div class="bar-row"><div class="bar-label"><span>Data Analysis</span><span>70%</span></div><div class="bar-track"><div class="bar-fill" data-w="70"></div></div></div>
+        <div class="bar-row"><div class="bar-label"><span>Microsoft Excel</span><span>75%</span></div><div class="bar-track"><div class="bar-fill" data-w="75"></div></div></div>
+        <div class="bar-row"><div class="bar-label"><span>Power BI</span><span>65%</span></div><div class="bar-track"><div class="bar-fill" data-w="65"></div></div></div>
+        <div class="bar-row"><div class="bar-label"><span>Machine Learning</span><span>60%</span></div><div class="bar-track"><div class="bar-fill" data-w="60"></div></div></div>
+        <div class="bar-row"><div class="bar-label"><span>Statistical Modelling</span><span>57%</span></div><div class="bar-track"><div class="bar-fill" data-w="57"></div></div></div>
+        <div class="bar-row"><div class="bar-label"><span>ETL &amp; Data Pipelines</span><span>55%</span></div><div class="bar-track"><div class="bar-fill" data-w="55"></div></div></div>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="skill-num">( 003 )</div>
+        <h3>Creative &amp; Video Editing</h3>
+        <span class="skill-cat">Creative</span>
+        <p style="font-size:.8rem;color:var(--text3);margin-bottom:20px;line-height:1.6">Outside my technical and professional work, I occasionally enjoy video editing and creating digital content. I like experimenting with different editing tools, transitions, visual effects and creative techniques.</p>
+        <div class="app-logos">
+          <div class="app-logo-item"><img src="aftereffects.jpeg" alt="After Effects"><span>After Effects</span></div>
+          <div class="app-logo-item"><img src="davinciresolve.jpeg" alt="DaVinci Resolve"><span>DaVinci</span></div>
+          <div class="app-logo-item"><img src="premierepro.jpeg" alt="Premiere Pro"><span>Premiere</span></div>
+          <div class="app-logo-item"><img src="capcut.jpeg" alt="CapCut"><span>CapCut</span></div>
+          <div class="app-logo-item"><img src="vn.jpeg" alt="VN Editor" style="border-radius:8px"><span>VN Video</span></div>
+        </div>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="skill-num">( 004 )</div>
+        <h3>Design &amp; Productivity</h3>
+        <span class="skill-cat">Tools</span>
+        <div class="prod-logos" style="margin-bottom:24px">
+          <div class="prod-item"><img src="canva.jpeg" alt="Canva"><span>Canva</span></div>
+          <div class="prod-item"><img src="excel.jpeg" alt="Excel"><span>Excel</span></div>
+          <div class="prod-item"><img src="powerpoint.jpeg" alt="PowerPoint"><span>PowerPoint</span></div>
+          <div class="prod-item"><img src="word.jpeg" alt="Word"><span>Word</span></div>
+        </div>
+        <h3 style="font-size:.85rem;margin-bottom:0">Professional &amp; Interpersonal <span style="font-size:.7rem;font-weight:600;color:var(--text3);background:rgba(0,0,0,.06);padding:3px 10px;border-radius:20px;margin-left:6px">Soft Skills</span></h3>
+        <div class="ip-tags">
+          <span class="ip-tag">Communication</span>
+          <span class="ip-tag">Team Collaboration</span>
+          <span class="ip-tag">Problem Solving</span>
+          <span class="ip-tag">Adaptability</span>
+          <span class="ip-tag">Networking</span>
+          <span class="ip-tag">Leadership</span>
+          <span class="ip-tag">Quick Learning</span>
+          <span class="ip-tag">Customer Service</span>
+          <span class="ip-tag">Digital Marketing</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- NEXZEN CART -->
+<section id="nexzen">
+  <div class="s-inner">
+    <span class="s-label">Featured Venture</span>
+    <h2 class="s-title reveal">Building NexZen Cart</h2>
+    <p class="s-sub reveal">Independently building an e-commerce platform alongside professional commitments — dropshipping with a planned vendor marketplace.</p>
+    <div class="nxz-grid reveal">
+      <div class="nxz-info">
+        <img src="nexzencart.jpeg" alt="NexZen Cart" class="nxz-logo" onerror="this.style.display='none'">
+        <div class="nxz-badge"><span class="dot"></span>Actively Building</div>
+        <h3 style="font-size:1.6rem;font-weight:800;color:#fff;letter-spacing:-.03em;margin-bottom:8px">NexZen Cart</h3>
+        <div class="nxz-role">Founder &amp; E-commerce Developer · Side Venture</div>
+        <p class="nxz-desc">Alongside my studies and professional commitments, I am independently building NexZen Cart, an e-commerce venture based in the UK. I work on developing the website, improving the user experience, managing its digital presence and exploring opportunities to grow the business — including a planned vendor marketplace connecting local Liverpool sellers with online buyers.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <a href="https://www.nexzencart.co.uk" target="_blank" class="btn-dark-fill" style="background:#fff;color:var(--dark)">Visit Store ↗</a>
+          <a href="#contact" class="btn-dark-outline">Build Enquiry</a>
+        </div>
+      </div>
+      <div class="nxz-preview" style="display:flex;flex-direction:column">
+        <div class="browser-bar">
+          <div class="browser-dots"><span style="background:#ef4444"></span><span style="background:#f59e0b"></span><span style="background:#22c55e"></span></div>
+          <div class="browser-url">nexzencart.co.uk</div>
+        </div>
+        <div class="browser-content" style="flex:1">
+          <img src="nexzenpage.jpeg" alt="NexZen Cart website">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="s-inner">
+    <span class="s-label">Projects</span>
+    <h2 class="s-title reveal">Technical Work</h2>
+    <p class="s-sub reveal">Personal and academic projects spanning web development, data analytics and machine learning.</p>
+
+    <!-- Live Stores -->
+    <div class="proj-grid" style="margin-bottom:16px">
+      <a href="https://www.bargainsquare.co.uk" target="_blank" class="proj-card-img reveal">
+        <img src="bspage.jpeg" alt="Bargain Square">
+        <div class="proj-overlay"></div>
+        <div class="proj-meta">
+          <div class="proj-info">
+            <div class="proj-cat">Shopify · E-commerce</div>
+            <div class="proj-name">Bargain Square Online Store</div>
+          </div>
+          <div class="proj-discover">Live Store ↗</div>
+        </div>
+      </a>
+      <a href="https://oudvana.uk" target="_blank" class="proj-card-img reveal">
+        <img src="oudvanapage.jpeg" alt="Oud Vana">
+        <div class="proj-overlay"></div>
+        <div class="proj-meta">
+          <div class="proj-info">
+            <div class="proj-cat">Shopify · E-commerce</div>
+            <div class="proj-name">Oud Vana Online Store</div>
+          </div>
+          <div class="proj-discover">Live Store ↗</div>
+        </div>
+      </a>
+    </div>
+
+    <!-- Academic Projects -->
+    <span class="s-label" style="margin-top:48px;display:block">Academic Work</span>
+    <h2 class="s-title reveal" style="margin-bottom:8px;font-size:clamp(1.6rem,3vw,2.4rem)">Academic Projects</h2>
+    <p class="s-sub reveal" style="margin-bottom:32px">MSc Computer Science research and machine learning projects.</p>
+    <div class="proj-grid">
+
+      <div class="proj-card-plain reveal">
+        <div class="proj-num">Project 01</div>
+        <div class="proj-tags">
+          <span class="proj-tag">Node2Vec</span>
+          <span class="proj-tag">Graph ML</span>
+          <span class="proj-tag">Python</span>
+          <span class="proj-tag">SQL</span>
+        </div>
+        <h3>Predicting Academic Collaborations via Node2Vec and Supervised Learning</h3>
+        <p>Analysed the large-scale DBLP dataset to identify patterns in academic co-authorship using Python and SQL. Built a Node2Vec and Logistic Regression model to predict collaboration trends. Produced data visualisation dashboards to communicate findings to a non-technical audience.</p>
+      </div>
+
+      <div class="proj-card-plain reveal">
+        <div class="proj-num">Project 02</div>
+        <div class="proj-tags">
+          <span class="proj-tag">Image Classification</span>
+          <span class="proj-tag">Python</span>
+          <span class="proj-tag">AI</span>
+        </div>
+        <h3>SnakeSmart — AI-Based Snake Species Identification</h3>
+        <p>Developed an AI model to classify snake species from image data. Handled end-to-end data collection, preprocessing, and model training. Built an automated identification system with first aid recommendations based on species identified.</p>
+      </div>
+
+      <div class="proj-card-plain reveal" style="grid-column:1/-1">
+        <div class="proj-num">Project 03</div>
+        <div class="proj-tags">
+          <span class="proj-tag">SVM</span>
+          <span class="proj-tag">Naive Bayes</span>
+          <span class="proj-tag">76% Accuracy</span>
+          <span class="proj-tag">Python</span>
+        </div>
+        <h3>Student Performance Prediction — ML Classification Pipeline</h3>
+        <p>Analysed student data to identify key performance factors using statistical analysis and data visualisation. Built and evaluated multiple models including Naive Bayes, SVM, and Logistic Regression, achieving approximately 76% accuracy.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- THE QUID STORY -->
+<section id="creative">
+  <div class="s-inner">
+    <span class="s-label">Creative Media</span>
+    <h2 class="s-title reveal">The Quid Story</h2>
+    <p class="s-sub reveal">An independent AI content creation project — exploring business, finance, technology and world affairs through short-form video.</p>
+    <div class="qs-grid">
+      <div class="qs-brand-card reveal-l">
+        <span class="qs-icon">📱</span>
+        <h3>The Quid Story</h3>
+        <p class="qs-handle">@thequidstory</p>
+        <p class="qs-desc">AI-generated short-form videos exploring how major brands grow, business strategies, finance, technology, politics, emerging trends and current affairs.</p>
+        <a href="https://www.instagram.com/thequidstory" target="_blank" class="qs-visit">Visit Instagram ↗</a>
+      </div>
+      <div class="reveal-r">
+        <h3 class="qs-info"><span style="font-size:1.3rem;font-weight:800;color:var(--text);letter-spacing:-.02em">What is The Quid Story?</span></h3>
+        <p class="qs-info" style="margin-top:14px">Outside my professional and academic commitments, I enjoy exploring AI-powered content creation through my Instagram page, The Quid Story. I create and publish AI-generated videos exploring how major brands grow, business strategies, finance, technology, politics, emerging trends and current affairs.</p>
+        <p class="qs-info">This allows me to experiment with AI tools, research interesting topics, develop creative storytelling techniques and explore new ways of presenting information through short-form video content.</p>
+        <div class="qs-topics">
+          <span class="qs-topic">Business Strategies</span>
+          <span class="qs-topic">Finance &amp; Markets</span>
+          <span class="qs-topic">Technology</span>
+          <span class="qs-topic">Geopolitics</span>
+          <span class="qs-topic">Emerging Trends</span>
+          <span class="qs-topic">Brand Stories</span>
+          <span class="qs-topic">Current Affairs</span>
+        </div>
+        <h4 style="font-size:.85rem;font-weight:700;color:var(--text);margin-top:28px;margin-bottom:10px">Skills Involved</h4>
+        <div class="qs-skill-tags">
+          <span class="qs-skill-tag">AI Content Generation</span>
+          <span class="qs-skill-tag">AI Video Creation</span>
+          <span class="qs-skill-tag">Research</span>
+          <span class="qs-skill-tag">Digital Storytelling</span>
+          <span class="qs-skill-tag">Short-form Video</span>
+          <span class="qs-skill-tag">Content Planning</span>
+          <span class="qs-skill-tag">Social Media</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLISHED -->
+<section id="published">
+  <div class="s-inner">
+    <span class="s-label">Publications</span>
+    <h2 class="s-title reveal">Published Work</h2>
+    <div class="book-grid">
+      <div class="book-wrap reveal-l">
+        <img src="nowoundnohealing.jpeg" alt="No Wound, No Healing" class="book-cover-img">
+      </div>
+      <div class="reveal-r">
+        <div class="pub-label">Kindle · Available on Amazon</div>
+        <h3 class="pub-title">No Wound,<br>No Healing</h3>
+        <p class="pub-sub">A short book on the art of not taking anything personally — on letting go of what doesn't belong to you and living with a clearer, calmer heart.</p>
+        <div class="pub-meta">
+          <span>📅 Published October 2026</span>
+          <span>📖 E-book · Kindle</span>
+        </div>
+        <div class="pub-btns">
+          <a href="https://www.amazon.co.uk/No-Wound-Healing-anything-Personal-ebook/dp/B0HPYBJJZC/" target="_blank" class="pub-btn primary">Amazon UK ↗</a>
+          <a href="https://www.amazon.in/No-Wound-Healing-anything-Personal-ebook/dp/B0HPYBJJZC/" target="_blank" class="pub-btn secondary">Amazon India ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PERSONAL INTERESTS -->
+<section id="interests">
+  <div class="s-inner">
+    <span class="s-label">Beyond Work</span>
+    <h2 class="s-title reveal">Personal Interests</h2>
+    <div class="int-grid">
+      <div class="int-card reveal">
+        <span class="int-icon">📈</span>
+        <h4>Financial Markets</h4>
+        <p>I actively spend time learning about financial markets, analysing stocks and understanding market movements. I enjoy exploring how data, trends and financial information can support better-informed decisions.</p>
+      </div>
+      <div class="int-card reveal">
+        <span class="int-icon">🎬</span>
+        <h4>Video Editing</h4>
+        <p>I occasionally enjoy experimenting with video editing and digital content creation — transitions, visual effects and creative techniques using tools like After Effects, DaVinci Resolve and CapCut.</p>
+      </div>
+      <div class="int-card reveal">
+        <span class="int-icon">🤖</span>
+        <h4>AI &amp; Content Creation</h4>
+        <p>I'm interested in experimenting with AI tools and using them creatively — including through The Quid Story, where I create AI-generated content on business, finance and technology.</p>
+      </div>
+      <div class="int-card reveal">
+        <span class="int-icon">🤝</span>
+        <h4>Networking &amp; People</h4>
+        <p>I enjoy meeting new people, attending professional events, exchanging ideas and exploring collaborations. Learning from people with different backgrounds and experiences genuinely interests me.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEADERSHIP -->
+<section id="leadership">
+  <div class="s-inner">
+    <span class="s-label">Leadership</span>
+    <h2 class="s-title reveal">Beyond the Work</h2>
+    <p class="s-sub reveal">Organising, managing, and leading from the front.</p>
+    <div class="lead-grid">
+      <div class="lead-left reveal">
+        <img src="treasurer.jpeg" alt="Treasurer" class="lead-img" onerror="this.style.display='none'">
+        <div class="lead-date-label">2023 – 2024</div>
+        <div class="lead-role-title">Treasurer</div>
+        <div class="lead-org">SASTRA Deemed to be University, Thanjavur, India — Bachelor's Degree</div>
+        <p class="lead-desc">During my bachelor's I was the Treasurer for our student body. It taught me a lot — managing real money, making sure events actually happened, and being the person people could count on when it came to finances.</p>
+        <div class="lead-tags">
+          <span class="lead-tag">Fund Management</span>
+          <span class="lead-tag">Budget Planning</span>
+          <span class="lead-tag">Accountability</span>
+          <span class="lead-tag">Event Coordination</span>
+        </div>
+      </div>
+      <div class="reveal-r">
+        <div class="comp-label">Core Competencies</div>
+        <div class="comp-cards">
+          <div class="comp-card">
+            <h4>Team Leadership</h4>
+            <p>Led diverse groups with clarity and a results-first mindset across academic and professional settings.</p>
+          </div>
+          <div class="comp-card">
+            <h4>Event Organisation</h4>
+            <p>Planned and executed university-scale events from initial concept through to delivery.</p>
+          </div>
+          <div class="comp-card">
+            <h4>Fund Management</h4>
+            <p>Managed funds with transparency, precision, and financial accountability.</p>
+          </div>
+          <div class="comp-card">
+            <h4>Planning and Execution</h4>
+            <p>Strategic planning that consistently translates ideas into measurable outcomes.</p>
+          </div>
+          <div class="comp-card">
+            <h4>Building Connections</h4>
+            <p>Committed to growing a strong professional network across data, tech, and business communities.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div style="max-width:900px;margin:0 auto">
+    <span class="cta-label">Let's Build Together</span>
+    <h2 class="cta-title">Open to new<br>opportunities.</h2>
+    <div class="cta-btns">
+      <a href="mailto:i.mohamedabzar@gmail.com?subject=Opportunity&body=Hi Abzar," class="btn-dark-fill" style="font-size:.92rem;padding:14px 32px">Hire Me ↗</a>
+      <a href="#contact" class="btn-dark-outline" style="font-size:.92rem;padding:14px 32px">Get in Touch</a>
+    </div>
+  </div>
+</section>
+
+<!-- HIRE / ENQUIRY -->
+<section id="hire">
+  <div class="hire-grid">
+    <div class="hire-left reveal">
+      <h2>Want to build your business online?</h2>
+      <p>Looking for an e-commerce developer or digital partner? Share your email and a few details — Abzar will get back to you.</p>
+    </div>
+    <div class="hire-form-card reveal-r">
+      <h3>Build Enquiry</h3>
+      <p>Tell me what you have in mind.</p>
+      <form id="enquiryForm" onsubmit="handleEnquiry(event)">
+        <label>Your email address</label>
+        <input type="email" id="eqEmail" placeholder="hello@example.com" required>
+        <label>Describe your e-commerce idea</label>
+        <textarea id="eqDesc" rows="3" placeholder="Product type, features, goals..."></textarea>
+        <button type="submit" class="btn-enquiry">Send Enquiry ↗</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="s-inner">
+    <span class="s-label">Contact</span>
+    <h2 class="s-title reveal">Let's Connect</h2>
+    <div class="contact-grid">
+      <div class="c-cards">
+        <a href="mailto:i.mohamedabzar@gmail.com" class="c-card reveal">
+          <div class="c-icon">
+            <svg width="17" height="17" fill="none" stroke="var(--text2)" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+          </div>
+          <div><h4>i.mohamedabzar@gmail.com</h4><p>Email</p></div>
+        </a>
+        <a href="https://www.linkedin.com/in/mohamed-abzar-27ab33323/" target="_blank" class="c-card reveal">
+          <div class="c-icon">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="#0a66c2"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          </div>
+          <div><h4>Mohamed Abzar</h4><p>LinkedIn</p></div>
+        </a>
+        <a href="https://github.com/imohamedabzar" target="_blank" class="c-card reveal">
+          <div class="c-icon">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="var(--text2)"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          </div>
+          <div><h4>imohamedabzar</h4><p>GitHub</p></div>
+        </a>
+        <a href="https://www.instagram.com/abjuuuuuuuu/" target="_blank" class="c-card reveal">
+          <div class="c-icon">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#e1306c" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#e1306c" stroke="none"/></svg>
+          </div>
+          <div><h4>@abjuuuuuuuu</h4><p>Personal Instagram</p></div>
+        </a>
+        <div class="c-card reveal" style="cursor:default">
+          <div class="c-icon">
+            <svg width="17" height="17" fill="none" stroke="var(--green)" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div><h4>Liverpool, England</h4><p>Open to remote &amp; hybrid</p></div>
+        </div>
+      </div>
+      <div class="contact-form reveal-r">
+        <h3>Send a Message</h3>
+        <form id="contactForm" onsubmit="handleContact(event)">
+          <div class="form-group">
+            <label>Your Name</label>
+            <input type="text" id="cName" required>
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" id="cEmail" required>
+          </div>
+          <div class="form-group">
+            <label>Topic</label>
+            <select id="cType">
+              <option value="opportunity">Full-Time Opportunity</option>
+              <option value="freelance">Freelance / Project</option>
+              <option value="collaboration">Collaboration</option>
+              <option value="general">General Enquiry</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Message</label>
+            <textarea id="cMsg" rows="4" required></textarea>
+          </div>
+          <button type="submit" class="btn-submit">Send Message ↗</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <a href="#hero" class="footer-logo">Mohamed Abzar</a>
+        <p class="footer-tagline">Building, learning and creating —<br>one idea at a time.<br><br>Liverpool, England</p>
+      </div>
+      <div class="footer-nav">
+        <a href="#about">About</a>
+        <a href="https://github.com/imohamedabzar" target="_blank">GitHub</a>
+        <a href="#experience">Experience</a>
+        <a href="https://www.linkedin.com/in/mohamed-abzar-27ab33323/" target="_blank">LinkedIn</a>
+        <a href="#projects">Work</a>
+        <a href="https://www.instagram.com/thequidstory" target="_blank">@thequidstory</a>
+        <a href="#creative">The Quid Story</a>
+        <a href="https://www.bargainsquare.co.uk" target="_blank">Bargain Square</a>
+        <a href="#published">Published</a>
+        <a href="https://oudvana.uk" target="_blank">Oud Vana</a>
+        <a href="#contact">Contact</a>
+        <a href="https://www.nexzencart.co.uk" target="_blank">NexZen Cart</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 Mohamed Abzar. All rights reserved.</p>
+      <p class="footer-loc">Liverpool, England · Open to remote &amp; hybrid</p>
+    </div>
+  </div>
+</footer>
+
+<!-- SPIDER-MAN CHATBOT -->
+<div class="spider-wrap" id="spiderBtn" title="Want to work with me?">
+  <div class="spider-char" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+    <svg width="62" height="62" viewBox="0 0 62 62" fill="none">
+      <ellipse cx="31" cy="38" rx="11" ry="13" fill="#1d4ed8"/>
+      <circle cx="31" cy="20" r="10" fill="#dc2626"/>
+      <ellipse cx="27" cy="18" rx="3.8" ry="4.2" fill="white" transform="rotate(-10 27 18)"/>
+      <ellipse cx="35" cy="18" rx="3.8" ry="4.2" fill="white" transform="rotate(10 35 18)"/>
+      <ellipse cx="27" cy="18" rx="2.3" ry="2.8" fill="#1d4ed8" transform="rotate(-10 27 18)"/>
+      <ellipse cx="35" cy="18" rx="2.3" ry="2.8" fill="#1d4ed8" transform="rotate(10 35 18)"/>
+      <path d="M21 20 Q31 10 41 20" stroke="rgba(0,0,0,.25)" stroke-width=".7" fill="none"/>
+      <path d="M42 33 Q52 22 56 10" stroke="#dc2626" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="56" cy="10" r="3" fill="#dc2626"/>
+      <path d="M20 33 Q12 38 10 44" stroke="#dc2626" stroke-width="3" stroke-linecap="round"/>
+      <path d="M22 46 Q14 52 12 58" stroke="#1d4ed8" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M40 46 Q48 52 50 58" stroke="#1d4ed8" stroke-width="2.5" stroke-linecap="round"/>
+    </svg>
+  </div>
+  <a href="#contact" class="spider-bubble">Want to work with me? 🤝</a>
+</div>
+
+<script>
+// Mobile menu
+function toggleMobileMenu(){
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+function closeMobileMenu(){
+  document.getElementById('mobileMenu').classList.remove('open');
+}
+
+// Reveal on scroll
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')});
+},{threshold:.1});
+document.querySelectorAll('.reveal,.reveal-l,.reveal-r').forEach(el=>observer.observe(el));
+
+// Skill bars
+const barObs=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const fill=e.target.querySelector('.bar-fill');
+      if(fill)fill.style.width=fill.dataset.w+'%';
+      barObs.unobserve(e.target);
+    }
+  });
+},{threshold:.5});
+document.querySelectorAll('.bar-track').forEach(el=>barObs.observe(el));
+
+// Contact form → mailto
+function handleContact(e){
+  e.preventDefault();
+  const name=document.getElementById('cName').value;
+  const email=document.getElementById('cEmail').value;
+  const type=document.getElementById('cType').value;
+  const msg=document.getElementById('cMsg').value;
+  const subjects={opportunity:'Full-Time Opportunity',freelance:'Freelance Project',collaboration:'Collaboration',general:'General Enquiry'};
+  const subject=subjects[type]||'Enquiry';
+  const body=`Hi Abzar,\n\nName: ${name}\nEmail: ${email}\n\n${msg}`;
+  window.location.href=`mailto:i.mohamedabzar@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
+function handleEnquiry(e){
+  e.preventDefault();
+  const email=document.getElementById('eqEmail').value;
+  const desc=document.getElementById('eqDesc').value;
+  const body=`Hi Abzar,\n\nMy email: ${email}\n\n${desc}`;
+  window.location.href=`mailto:i.mohamedabzar@gmail.com?subject=${encodeURIComponent('E-commerce Enquiry')}&body=${encodeURIComponent(body)}`;
+}
+</script>
+</body>
+</html>
